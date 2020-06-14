@@ -1,0 +1,11 @@
+.slick-slide.slick-center img {
+  transform: scale(1.1);
+}
+
+.slick-dots {
+  position: relative;
+}
+
+.slick-dots li {
+  margin: 0 1rem 0 1rem;
+}
