@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "vg5000";
+  src: url("/fonts/VG5000-Regular_web.woff2") format("woff2"),
+    url("/fonts/VG5000-Regular_web.woff") format("woff");
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body * {
+  font-family: "futura";
+}
