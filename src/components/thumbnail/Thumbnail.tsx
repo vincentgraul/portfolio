@@ -14,14 +14,14 @@ export default function Thumbnail(props: Props): JSX.Element {
   const { src, text, onOpen, className } = props;
 
   return (
-    <Container
-      className={`${className} thumbnail`}
-      onClick={() => onOpen && onOpen()}
-      pointer={onOpen !== undefined}
-    >
-      <Image className="thumbnail__image" src={src}></Image>
-      {text && <Label>{text}</Label>}
-    </Container>
+      <Container
+          className={`${className} thumbnail`}
+          onClick={() => onOpen && onOpen()}
+          pointer={onOpen !== undefined}
+      >
+        <Image className="thumbnail__image" src={src}></Image>
+        {text && <Label>{text}</Label>}
+      </Container>
   );
 }
 
@@ -41,8 +41,8 @@ const Image = styled.img`
     ? `${Breakpoints.isPortrait() ? "25vw" : "20vw"}`
     : "7vw"};
   border: ${Breakpoints.isTabletOrLower()
-      ? `${Breakpoints.isPortrait() ? "0.8vw" : "0.5vw"}`
-      : "0.2vw"}
+    ? `${Breakpoints.isPortrait() ? "0.8vw" : "0.5vw"}`
+    : "0.2vw"}
     solid ${colors.dark.primary};
   border-radius: 10px;
   padding: 1vw;
