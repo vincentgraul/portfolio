@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
+    <defs>
+        <ellipse id="path-1" cx="39.9375" cy="39.6" rx="39.9375" ry="39.6"></ellipse>
+        <filter x="-4.4%" y="-4.4%" width="108.8%" height="108.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-7" dy="-2" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.55 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo">
+            <g id="lune">
+                <use fill="#970CE8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            </g>
+            <g id="nuages" transform="translate(0.000000, 36.600000)" fill="#121621">
+                <path d="M0.0147562852,4.08704175 C1.52045437,1.36234725 3.9176841,5.32907052e-15 7.20644546,5.32907052e-15 C12.98816,5.32907052e-15 16.1296129,4.21052632 16.6308041,12.631579 L1.18954595,12.631579 C0.497551193,9.88572654 0.0946477187,7.02633612 0.0147562852,4.08704175 Z" id="gros-nuage"></path>
+                <path d="M14.0328947,12.631579 C14.2062746,7.24210524 16.1431131,4.54736842 19.8434105,4.54736842 C23.5437078,4.54736842 25.5542376,7.24210524 25.875,12.631579 L14.0328947,12.631579 Z" id="petit-nuage"></path>
+            </g>
+            <g id="nuages" transform="translate(51.750000, 16.800000)" fill="#121621">
+                <path d="M26.796099,12.631579 L9.24419587,12.631579 C9.74538709,4.21052632 12.88684,4.26325642e-15 18.6685545,4.26325642e-15 C19.51756,4.26325642e-15 20.3071508,0.0907912602 21.0373271,0.27237378 C23.6293665,3.98146243 25.5989058,8.15072406 26.796099,12.631579 Z" id="gros-nuage"></path>
+                <path d="M2.24999999e-07,12.631579 C0.173380072,7.24210524 2.11021865,4.54736842 5.81051593,4.54736842 C9.51081322,4.54736842 11.5213431,7.24210524 11.8421055,12.631579 L2.24999999e-07,12.631579 Z" id="petit-nuage" transform="translate(5.921053, 8.589474) scale(-1, 1) translate(-5.921053, -8.589474) "></path>
+            </g>
+            <g id="nuages" transform="translate(46.125000, 59.400000)" fill="#121621">
+                <path d="M16.7354754,12.631579 L9.24419587,12.631579 C9.74538709,4.21052632 12.88684,0 18.6685545,0 C21.8985994,0 24.2686627,1.31413568 25.7787444,3.94240706 C23.2464525,7.28908662 20.1920788,10.2250906 16.7354754,12.631579 Z" id="gros-nuage"></path>
+                <path d="M2.24999999e-07,12.631579 C0.173380072,7.24210524 2.11021865,4.54736842 5.81051593,4.54736842 C9.51081322,4.54736842 11.5213431,7.24210524 11.8421055,12.631579 L2.24999999e-07,12.631579 Z" id="petit-nuage" transform="translate(5.921053, 8.589474) scale(-1, 1) translate(-5.921053, -8.589474) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
