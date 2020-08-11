@@ -9,12 +9,11 @@ const Button = styled.button`
   padding: 1rem;
   text-align: center;
   font-weight: bold;
-  border-radius: 5px;
   cursor: pointer;
   outline: none;
   border: ${Breakpoints.isTabletOrLower()
-      ? `${Breakpoints.isPortrait() ? "0.5vh" : "0.5vw"}`
-      : "0.2vw"}
+    ? `${Breakpoints.isPortrait() ? "0.5vh" : "0.5vw"}`
+    : "0.2vw"}
     solid ${colors.dark.primary};
 `;
 
