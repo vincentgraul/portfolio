@@ -5,7 +5,7 @@ export default class Breakpoints {
 
   public static isLaptop(): boolean {
     return window.matchMedia("(min-width: 1025px) and (max-width: 1280px)")
-      .matches;
+        .matches;
   }
 
   public static isLaptopOrUpper(): boolean {
@@ -18,7 +18,7 @@ export default class Breakpoints {
 
   public static isTablet(): boolean {
     return window.matchMedia("(min-width: 768px) and (max-width: 1024px)")
-      .matches;
+        .matches;
   }
 
   public static isTabletOrUpper(): boolean {
@@ -31,7 +31,7 @@ export default class Breakpoints {
 
   public static isLargeMobile(): boolean {
     return window.matchMedia("(min-width: 481px) and (max-width: 767px)")
-      .matches;
+        .matches;
   }
 
   public static isLargeMobileOrUpper(): boolean {
@@ -44,7 +44,7 @@ export default class Breakpoints {
 
   public static isMobile(): boolean {
     return window.matchMedia("(min-width: 320px) and (max-width: 480px)")
-      .matches;
+        .matches;
   }
 
   public static isLandscape(): boolean {
