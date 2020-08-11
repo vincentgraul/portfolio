@@ -9,26 +9,26 @@ import Separator from "../../components/separator/Separator";
 import Border from "../../components/border/Border";
 
 export default function Mooncello(): JSX.Element {
-  return (
-    <Container>
-      <Border src="/shapes/corner-triangle.svg" />
-      <Header />
+    return (
+        <Container>
+            <Border src="/shapes/corner-triangle.svg" />
+            <Header />
 
-      <About />
+            <About />
 
-      <Separator src="/shapes/triangle.svg" />
+            <Separator src="/shapes/triangle.svg" />
 
-      <Technologies />
+            <Technologies />
 
-      <Separator src="/shapes/triangle.svg" />
+            <Separator src="/shapes/triangle.svg" />
 
-      <Screenshots />
+            <Screenshots />
 
-      <Separator src="/shapes/triangle.svg" />
+            <Separator src="/shapes/triangle.svg" />
 
-      <Video />
-    </Container>
-  );
+            <Video />
+        </Container>
+    );
 }
 
 const Container = styled.div`
