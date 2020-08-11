@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
+import Slider, { Settings } from "react-slick";
+import styled from "styled-components";
 import "./test.css";
 import Section, { Orientation } from "../../../components/section/Section";
 import HeaderWithTitle from "../../../components/card/Header";
-import Slider, { Settings } from "react-slick";
-import styled from "styled-components";
 import colors from "../../../colors";
 import Breakpoints from "../../../breakpoints";
 
@@ -22,84 +22,98 @@ export default function Screenshots(): JSX.Element {
     customPaging: (index: number) => <Dot>{index + 1}</Dot>,
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollToContainer = () => {
+    if (containerRef.current) {
+      window.scrollTo(0, containerRef.current.offsetTop);
+    }
+  };
+
   return (
-    <Section
-      card={{
-        renderHeader: () => <HeaderWithTitle title="Images" />,
-        children: (
-          <Container>
-            {Breakpoints.isTabletOrLower() ? null : (
-              <ArrowContainer>
-                <Arrow
-                  src="/icons/left-arrow.svg"
-                  onClick={() => slider.current?.slickPrev()}
-                />
-                <Arrow
-                  src="/icons/right-arrow.svg"
-                  onClick={() => slider.current?.slickNext()}
-                />
-              </ArrowContainer>
-            )}
+      <Section
+          card={{
+            renderHeader: () => <HeaderWithTitle title="Images" />,
+            children: (
+                <Container ref={containerRef}>
+                  {Breakpoints.isTabletOrLower() ? (
+                      <SwiperInformation>
+                        Swipe <SwipeImage src="/icons/swipe.svg" />
+                      </SwiperInformation>
+                  ) : null}
 
-            {Breakpoints.isTabletOrLower() ? (
-              <SwiperInformation>
-                Swipe <SwipeImage src="/icons/swipe.svg" />
-              </SwiperInformation>
-            ) : null}
-            <Slider ref={slider} {...sliderSettings}>
-              <Slide>
-                <Screen src="/img/setup_welcome.png" />
-              </Slide>
+                  <Slider ref={slider} {...sliderSettings}>
+                    <Slide>
+                      <Screen src="/img/mooncello/setup_welcome.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/setup_configuration.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/setup_configuration.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/sign_up.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/sign_up.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/sign_in.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/sign_in.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/tables.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/tables.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/table_columns.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/table_columns.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/table_entries.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/table_entries.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/table_entries_with_filter.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/table_entries_with_filter.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/users.png" />
-              </Slide>
+                    <Slide>
+                      <Screen src="/img/mooncello/users.png" />
+                    </Slide>
 
-              <Slide>
-                <Screen src="/img/files.png" />
-              </Slide>
-            </Slider>
-          </Container>
-        ),
-        noHorizontalPadding: Breakpoints.isTabletOrLower(),
-        noBorder: Breakpoints.isTabletOrLower(),
-        noRadius: Breakpoints.isTabletOrLower(),
-      }}
-      orientation={Breakpoints.isTabletOrLower() ? undefined : Orientation.LEFT}
-      renderImage={() =>
-        Breakpoints.isTabletOrLower() ? null : (
-          <Image src="/shapes/oval-right.svg" />
-        )
-      }
-    ></Section>
+                    <Slide>
+                      <Screen src="/img/mooncello/files.png" />
+                    </Slide>
+                  </Slider>
+
+                  {Breakpoints.isTabletOrLower() ? null : (
+                      <ArrowContainer>
+                        <Arrow
+                            src="/icons/left-arrow.svg"
+                            onClick={() => {
+                              scrollToContainer();
+                              slider.current?.slickPrev();
+                            }}
+                        />
+                        <Arrow
+                            src="/icons/right-arrow.svg"
+                            onClick={() => {
+                              scrollToContainer();
+                              slider.current?.slickNext();
+                            }}
+                        />
+                      </ArrowContainer>
+                  )}
+                </Container>
+            ),
+            noHorizontalPadding: Breakpoints.isTabletOrLower(),
+            noBorder: Breakpoints.isTabletOrLower(),
+            noRadius: Breakpoints.isTabletOrLower(),
+          }}
+          orientation={Breakpoints.isTabletOrLower() ? undefined : Orientation.LEFT}
+          renderImage={() =>
+              Breakpoints.isTabletOrLower() ? null : (
+                  <Image src="/shapes/oval-right.svg" />
+              )
+          }
+      ></Section>
   );
 }
 
@@ -110,7 +124,7 @@ const Container = styled.div`
 const ArrowContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-bottom: 8vh;
+  margin-top: 3.5vw;
 `;
 
 const Arrow = styled.img`
