@@ -5,26 +5,29 @@ import colors from "../../../colors";
 import Breakpoints from "../../../breakpoints";
 
 interface Props {
-  className?: string;
+    className?: string;
 }
 
 export default function Footer(props: Props): JSX.Element {
-  const { className } = props;
+    const { className } = props;
 
-  return (
-    <Container className={`${className}`}>
-      <Linkedin
-        href="http://www.linkedin.com/in/vgraul"
-        target="_blank"
-        src="/logo/linkedin.svg"
-      />
-      <Mail
-        href="http://vincentgraul.com/server.php"
-        target="_blank"
-        src="/icons/mail.svg"
-      />
-    </Container>
-  );
+    return (
+        <Container className={`${className}`}>
+            <Linkedin
+                href="http://www.linkedin.com/in/vgraul"
+                target="_blank"
+                src="/logo/linkedin.svg"
+            />
+
+            <Github
+                href="https://github.com/vgraul"
+                target="_blank"
+                src="/logo/github.svg"
+            />
+
+            <Mail target="_blank" src="/logo/mail.svg" />
+        </Container>
+    );
 }
 
 const Container = styled.div`
@@ -46,13 +49,14 @@ const Linkedin = styled(BubbleLink)`
     : "3vw"};
 `;
 
+const Github = styled(BubbleLink)`
+  margin: ${Breakpoints.isTabletOrLower()
+    ? `${Breakpoints.isPortrait() ? "0" : "0 3vw"}`
+    : "0 3vw"};
+`;
+
 const Mail = styled(BubbleLink)`
   margin-left: ${Breakpoints.isTabletOrLower()
     ? `${Breakpoints.isPortrait() ? "0" : "3vw"}`
     : "3vw"};
-  .image {
-    width: ${Breakpoints.isTabletOrLower()
-      ? `${Breakpoints.isPortrait() ? "6vh" : "6vw"}`
-      : "6vh"};
-  }
 `;
