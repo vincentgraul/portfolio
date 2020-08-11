@@ -4,19 +4,19 @@ import { useHistory } from "react-router-dom";
 import Breakpoints from "../../../breakpoints";
 
 export default function Header(): JSX.Element {
-  const history = useHistory();
+    const history = useHistory();
 
-  return (
-    <Container>
-      <Arrow src="/icons/left-arrow.svg" onClick={() => history.push("/")} />
-      <TitleContainer>
-        <Title>Mooncello</Title>
-        {Breakpoints.isTabletOrLower() && <SubTitle>CMS Headless</SubTitle>}
-        <Logo src="/logo/mooncello.svg" />
-      </TitleContainer>
-      {Breakpoints.isLaptopOrUpper() && <SubTitle>CMS Headless</SubTitle>}
-    </Container>
-  );
+    return (
+        <Container>
+            <Arrow src="/icons/left-arrow.svg" onClick={() => history.push("/")} />
+            <TitleContainer>
+                <Title>Mooncello</Title>
+                {Breakpoints.isTabletOrLower() && <SubTitle>CMS Headless</SubTitle>}
+                <Logo src="/logo/mooncello.svg" />
+            </TitleContainer>
+            {Breakpoints.isLaptopOrUpper() && <SubTitle>CMS Headless</SubTitle>}
+        </Container>
+    );
 }
 
 const Container = styled.div`
@@ -42,7 +42,7 @@ const Title = styled.h1`
   display: flex;
   align-items: center;
   font-size: ${Breakpoints.isTabletOrLower()
-    ? `${Breakpoints.isPortrait() ? "16vw" : "15vw"}`
+    ? `${Breakpoints.isPortrait() ? "16vw" : "13vw"}`
     : "8vw"};
 
   margin: ${Breakpoints.isTabletOrLower()
@@ -53,13 +53,11 @@ const Title = styled.h1`
 
 const SubTitle = styled.h2`
   font-size: ${Breakpoints.isTabletOrLower()
-    ? `${Breakpoints.isPortrait() ? "8vw" : "6vw"}`
+    ? `${Breakpoints.isPortrait() ? "7.5vw" : "5vw"}`
     : "3.7vw"};
-  margin: 0 0
-    ${Breakpoints.isTabletOrLower()
-      ? `${Breakpoints.isPortrait() ? "5vh" : "6vw"}`
-      : "2vw"}
-    0;
+  margin: ${Breakpoints.isTabletOrLower()
+    ? `${Breakpoints.isPortrait() ? "2vh 0 5vh 0" : "2vw 0 6vw 0"}`
+    : "0"};
 `;
 
 const Logo = styled.img`
