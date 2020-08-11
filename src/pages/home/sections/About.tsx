@@ -5,40 +5,40 @@ import Button from "../../../components/button/Button";
 import Breakpoints from "../../../breakpoints";
 
 export default function About(): JSX.Element {
-  return (
-    <Section
-      card={{
-        children: (
-          <Container>
-            <Text>
-              Bonjour, je suis Vincent Graul. <br /> <br />
-              Je suis passioné par le développement web et d’applications
-              mobile. J’aime me lancer des défis, me remettre en question et
-              concrétiser les projets dans lesquels je m’investis, qu’ils soient
-              personnels ou professionnels. <br />
-              Dans ma vie de développeur j’accorde une place importante à la
-              veille, aux bonnes pratiques ainsi qu’aux tests logiciels. <br />
-              <br />
-              Pour finir, j’aime échanger sur ma passion et mon expérience que
-              ce soit entre collègues, avec des personnes novices, ou autres…
-            </Text>
+    return (
+        <Section
+            card={{
+                children: (
+                    <Container>
+                        <Text>
+                            Bonjour, je suis Vincent Graul. <br /> <br />
+                            Je suis passionné par le développement web et d’applications
+                            mobiles. J’aime me lancer des défis, me remettre en question et
+                            concrétiser les projets dans lesquels je m’investis, qu’ils soient
+                            personnels ou professionnels. <br />
+                            Dans ma vie de développeur j’accorde une place importante à la
+                            veille, aux bonnes pratiques ainsi qu’aux tests logiciels. <br />
+                            <br />
+                            Pour finir, j’aime échanger sur ma passion et mon expérience que
+                            ce soit entre collègues, avec des personnes novices, ou autres…
+                        </Text>
 
-            <CVButton as="a" href="/cv.pdf" target="_blank">
-              Voir mon CV
-            </CVButton>
-          </Container>
-        ),
-        noBorder: Breakpoints.isTabletOrLower(),
-        noRadius: Breakpoints.isTabletOrLower(),
-      }}
-      orientation={
-        Breakpoints.isTabletOrLower() ? undefined : Orientation.RIGHT
-      }
-      renderImage={() =>
-        Breakpoints.isTabletOrLower() ? null : <Image src="/shapes/oval.svg" />
-      }
-    ></Section>
-  );
+                        <CVButton as="a" href="/cv.pdf" target="_blank">
+                            Voir mon CV
+                        </CVButton>
+                    </Container>
+                ),
+                noBorder: Breakpoints.isTabletOrLower(),
+                noRadius: Breakpoints.isTabletOrLower(),
+            }}
+            orientation={
+                Breakpoints.isTabletOrLower() ? undefined : Orientation.RIGHT
+            }
+            renderImage={() =>
+                Breakpoints.isTabletOrLower() ? null : <Image src="/shapes/oval.svg" />
+            }
+        ></Section>
+    );
 }
 
 const Container = styled.div`

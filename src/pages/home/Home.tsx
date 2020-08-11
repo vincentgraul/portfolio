@@ -7,18 +7,18 @@ import Separator from "../../components/separator/Separator";
 import Border from "../../components/border/Border";
 
 export default function Home(): JSX.Element {
-  return (
-    <Fragment>
-      <Border src="/shapes/corner-triangle.svg" />
-      <Header />
+    return (
+        <Fragment>
+            <Border src="/shapes/corner-triangle.svg" />
+            <Header />
 
-      <About />
-      <Separator src="/shapes/triangle.svg" />
+            <About />
+            <Separator src="/shapes/triangle.svg" />
 
-      <Skills />
-      <Separator src="/shapes/triangle.svg" />
+            <Skills />
+            <Separator src="/shapes/triangle.svg" />
 
-      <Projects />
-    </Fragment>
-  );
+            <Projects />
+        </Fragment>
+    );
 }
