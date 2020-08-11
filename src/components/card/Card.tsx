@@ -17,13 +17,13 @@ export default function Card(props: Props): JSX.Element {
   const { className, children, renderHeader, renderFooter, ...rest } = props;
 
   return (
-    <Container className={`${className}`} {...rest}>
-      {renderHeader && renderHeader()}
+      <Container className={`${className}`} {...rest}>
+        {renderHeader && renderHeader()}
 
-      {children}
+        {children}
 
-      {renderFooter && renderFooter()}
-    </Container>
+        {renderFooter && renderFooter()}
+      </Container>
   );
 }
 
@@ -35,9 +35,9 @@ const Container = styled.div<{
   background-color: ${colors.light.secondary};
   padding: ${
     Breakpoints.isTabletOrLower()
-      ? `${Breakpoints.isPortrait() ? "2.5vh" : "2.5vw"}`
-      : "2.5vw"
-  };
+        ? `${Breakpoints.isPortrait() ? "2.5vh" : "2.5vw"}`
+        : "2.5vw"
+};
   ${(props) =>
     props.noHorizontalPadding ? "padding-right: 0; padding-left: 0;" : null}
   border: ${(props) =>

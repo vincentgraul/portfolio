@@ -12,9 +12,9 @@ export default function HeaderWithTitle(props: Props): JSX.Element {
   const { className, title } = props;
 
   return (
-    <Header className={`${className}`}>
-      <Title>{title}</Title>
-    </Header>
+      <Header className={`${className}`}>
+        <Title>{title}</Title>
+      </Header>
   );
 }
 
@@ -30,6 +30,6 @@ const Title = styled.h3`
   border-bottom: 3px solid ${colors.dark.primary};
   padding-bottom: 1rem;
   font-size: ${Breakpoints.isTabletOrLower()
-    ? `${Breakpoints.isPortrait() ? "7vw" : "6vw"}`
+    ? `${Breakpoints.isPortrait() ? "8vw" : "6vw"}`
     : "3vw"};
 `;
