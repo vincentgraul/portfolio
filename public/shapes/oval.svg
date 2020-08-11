@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="50px" viewBox="0 0 10 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Oval</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="2" stroke-linecap="square">
+        <path d="M1,50 C6.55555556,42.6118791 9.33333333,34.1334338 9.33333333,24.5646641 C9.33333333,14.9958944 6.55555556,6.80767303 1,0 L1,25 L1,50 Z" id="Oval" stroke="#000000" fill="#6F99A1"></path>
+    </g>
+</svg>
