@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import colors from "./colors";
 import Footer from "./pages/home/sections/Footer";
-import RootModal from "./modal/RootModal";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Mooncello from "./pages/mooncello/Mooncello";
 import ScrollToTop from "./ScrollToTop";
 import CountriesQuiz from "./pages/countries-quiz/CountriesQuiz";
@@ -20,8 +19,6 @@ export default function App() {
 
   return (
     <Container>
-      <RootModal />
-
       <Router>
         <Switch>
           <Route path="/mooncello">
