@@ -1,45 +1,44 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import colors from "../../colors";
-import Breakpoints from "../../breakpoints";
 
 export interface Props {
   children: ReactNode;
   className?: string;
   renderHeader?: () => ReactNode;
   renderFooter?: () => ReactNode;
-  noBorder?: boolean;
-  noRadius?: boolean;
-  noHorizontalPadding?: boolean;
+  full?: boolean;
+  radius?: boolean;
 }
 
 export default function Card(props: Props): JSX.Element {
   const { className, children, renderHeader, renderFooter, ...rest } = props;
 
   return (
-      <Container className={`${className}`} {...rest}>
-        {renderHeader && renderHeader()}
+    <Container className={`${className}`} {...rest}>
+      {renderHeader && renderHeader()}
 
-        {children}
+      {children}
 
-        {renderFooter && renderFooter()}
-      </Container>
+      {renderFooter && renderFooter()}
+    </Container>
   );
 }
 
-const Container = styled.div<{
-  noBorder?: boolean;
-  noRadius?: boolean;
-  noHorizontalPadding?: boolean;
-}>`
-  background-color: ${colors.light.secondary};
-  padding: ${
-    Breakpoints.isTabletOrLower()
-        ? `${Breakpoints.isPortrait() ? "2.5vh" : "2.5vw"}`
-        : "2.5vw"
-};
-  ${(props) =>
-    props.noHorizontalPadding ? "padding-right: 0; padding-left: 0;" : null}
-  border: ${(props) =>
-    props.noBorder ? "none" : `0.3vw solid ${colors.dark.primary}`};
+const Container = styled.div<Pick<Props, "full" | "radius">>`
+  ${({ theme, full, radius }) => `
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  width: ${full ? "100%" : "85%"};
+  padding: 4vw 3vw;
+  background-color: ${theme.colors.light.primary};
+  color: ${theme.colors.dark.secondary};
+  border-radius: ${radius ? "0.3vw" : "0"};
+
+@media ${theme.breakpoints.tabletOrLower} {
+  @media ${theme.breakpoints.portrait} {
+    padding: 4vh 3vh;
+  }
+}
+`}
 `;
