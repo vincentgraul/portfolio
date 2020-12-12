@@ -1,16 +1,21 @@
 import styled from "styled-components";
-import Breakpoints from "../../breakpoints";
 
 const Separator = styled.img`
-  margin: ${Breakpoints.isTabletOrLower()
-    ? Breakpoints.isPortrait()
-        ? "6vh 0"
-        : "6vw 0"
-    : "6vh 0"};
+  ${({ theme }) => `
+  margin: 6vh 0;
+  width: 6vw;
   align-self: center;
-  width: ${Breakpoints.isTabletOrLower()
-    ? `${Breakpoints.isPortrait() ? "20vw" : "10vw"}`
-    : "5vw"};
+
+  @media ${theme.breakpoints.tabletOrLower} {
+    margin: 6vw 0;
+    width: 10vw;
+  }
+
+  @media ${theme.breakpoints.portrait} {
+    width: 10vh;
+    margin: 6vh 0;
+  }
+`}
 `;
 
 export default Separator;
