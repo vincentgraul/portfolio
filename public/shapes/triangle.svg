@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="42px" height="34px" viewBox="0 0 42 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Triangle</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="4" stroke-linecap="square">
-        <path d="M21,1 L41,32.1111111 L1,32.1111111 L21,1 Z" id="Triangle" stroke="#000000" stroke-width="2" fill="#6F99A1" transform="translate(21.000000, 16.555556) scale(-1, -1) translate(-21.000000, -16.555556) "></path>
+<svg width="48px" height="37px" viewBox="0 0 48 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>triangle</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="4">
+        <g id="triangle" transform="translate(4.000000, 2.000000)" fill="#55E6C1" fill-rule="nonzero" stroke="#000000" stroke-width="4">
+            <path d="M20,8.99999996e-07 L40,31.111112 L0,31.111112 L20,8.99999996e-07 Z" id="Triangle" transform="translate(20.000000, 15.555556) rotate(180.000000) translate(-20.000000, -15.555556) "></path>
+        </g>
     </g>
 </svg>
