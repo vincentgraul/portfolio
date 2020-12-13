@@ -88,6 +88,9 @@ jspm_packages/
 .env
 .env.test
 
+### Next ###
+.next
+
 ### VisualStudioCode ###
 .vscode
 
