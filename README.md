@@ -3,6 +3,6 @@ Address : http://vincentgraul.com
 
 ## License
 
-Copyright (©) 2019 - 2020 Vincent Graul - All rights reserved.
+Copyright (©) 2019 - 2022 Vincent Graul
 
-[More information here.](https://github.com/vgraul/portfolio/blob/master/LICENSE.md)
+[More information here.](https://github.com/vincentgraul/portfolio/blob/master/LICENSE.md)
