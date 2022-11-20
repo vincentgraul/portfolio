@@ -9,8 +9,8 @@ export default function About(): JSX.Element {
   return (
     <Section separator>
       <Card
-        full={resolution.isTabletOrLower()}
-        radius={resolution.isLaptopOrUpper()}
+        full={resolution.isTabletOrLower}
+        radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <p>

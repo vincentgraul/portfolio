@@ -16,8 +16,8 @@ export default function Skills(): JSX.Element {
     <Section separator>
       <Card
         renderHeader={() => <HeaderWithTitle title="Mes compétences" center />}
-        full={resolution.isTabletOrLower()}
-        radius={resolution.isLaptopOrUpper()}
+        full={resolution.isTabletOrLower}
+        radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
@@ -34,7 +34,7 @@ export default function Skills(): JSX.Element {
           <Row>
             <Label>
               Technologies
-              {resolution?.isTabletOrLower() ? " " : <br />}
+              {resolution?.isTabletOrLower ? " " : <br />}
               front-end
             </Label>
             <List>
@@ -49,7 +49,7 @@ export default function Skills(): JSX.Element {
           <Row>
             <Label>
               Technologies
-              {resolution?.isTabletOrLower() ? " " : <br />}
+              {resolution?.isTabletOrLower ? " " : <br />}
               back-end
             </Label>
             <List>
@@ -62,7 +62,7 @@ export default function Skills(): JSX.Element {
           <Row>
             <Label>
               Technologies
-              {resolution?.isTabletOrLower() ? " " : <br />}
+              {resolution?.isTabletOrLower ? " " : <br />}
               mobiles
             </Label>
             <List>
@@ -74,7 +74,7 @@ export default function Skills(): JSX.Element {
           <Row>
             <Label>
               Technologies
-              {resolution?.isTabletOrLower() ? " " : <br />}
+              {resolution?.isTabletOrLower ? " " : <br />}
               de test
             </Label>
             <List>

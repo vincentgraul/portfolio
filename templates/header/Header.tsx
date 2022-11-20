@@ -18,10 +18,10 @@ export default function Header(props: Props): JSX.Element {
       <Arrow src="/icons/left-arrow.svg" onClick={() => router.push("/")} />
       <TitleContainer>
         <Title>{title}</Title>
-        {resolution.isTabletOrLower() && <SubTitle>{subtitle}</SubTitle>}
+        {resolution.isTabletOrLower && <SubTitle>{subtitle}</SubTitle>}
         <Logo src={logo} />
       </TitleContainer>
-      {resolution.isLaptopOrUpper() && <SubTitle>{subtitle}</SubTitle>}
+      {resolution.isLaptopOrUpper && <SubTitle>{subtitle}</SubTitle>}
     </Container>
   );
 }

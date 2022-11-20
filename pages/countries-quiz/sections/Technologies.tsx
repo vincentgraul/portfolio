@@ -17,8 +17,8 @@ export default function Technologies(): JSX.Element {
         renderHeader={() => (
           <HeaderWithTitle title="Technologies utilisées" center />
         )}
-        full={resolution.isTabletOrLower()}
-        radius={resolution.isLaptopOrUpper()}
+        full={resolution.isTabletOrLower}
+        radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
@@ -81,7 +81,7 @@ const Container = styled.div`
 
           <BlocksLine
             src={
-              resolution.isTabletOrLower()
+              resolution.isTabletOrLower
                 ? "/shapes/blocks-line.svg"
                 : "/shapes/vertical-blocks-line.svg"
             }
@@ -96,7 +96,7 @@ const Container = styled.div`
 
           <BlocksLine
             src={
-              resolution.isTabletOrLower()
+              resolution.isTabletOrLower
                 ? "/shapes/blocks-line.svg"
                 : "/shapes/vertical-blocks-line.svg"
             }

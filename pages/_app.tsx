@@ -1,15 +1,16 @@
 import "../styles/globals.css";
+import colors, { Colors } from "../styles/colors";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRef } from "react";
 import useMatchResolution, {
   Breakpoints,
   Resolution,
-} from "@react-components/match-resolution";
-import useScrollTo from "@react-components/scroll-to";
+} from "@vincentgraul/react-components/match-resolution";
+import useScrollTo from "@vincentgraul/react-components/scroll-to";
 import { AppProps } from "next/app";
+import { NextPageContext } from "next";
 import styled, { ThemeProvider } from "styled-components";
-import colors, { Colors } from "../colors";
 import Footer from "./home/sections/Footer";
 
 export interface Theme {
@@ -24,7 +25,7 @@ export interface PageProps {
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
-  useScrollTo(ref, true);
+  useScrollTo(ref);
 
   const { resolution, breakpoints } = useMatchResolution(
     undefined,
@@ -43,14 +44,17 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   );
 }
 
-App.getInitialProps = ({ ctx }): { pageProps: PageProps } => {
-  const { req } = ctx;
+App.getInitialProps = ({ ctx }: ObjectLiteral): { pageProps: PageProps } => {
+  const { req }: NextPageContext = ctx;
+  let UA: string;
 
-  return {
-    pageProps: {
-      UA: req ? req.headers["user-agent"] : navigator.userAgent,
-    },
-  };
+  if (req && req.headers["user-agent"]) {
+    UA = req.headers["user-agent"];
+  } else {
+    UA = navigator.userAgent;
+  }
+
+  return { pageProps: { UA } };
 };
 
 export default App;

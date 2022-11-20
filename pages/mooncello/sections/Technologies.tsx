@@ -17,8 +17,8 @@ export default function Technologies(): JSX.Element {
         renderHeader={() => (
           <HeaderWithTitle title="Technologies utilisées" center />
         )}
-        full={resolution.isTabletOrLower()}
-        radius={resolution.isLaptopOrUpper()}
+        full={resolution.isTabletOrLower}
+        radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>

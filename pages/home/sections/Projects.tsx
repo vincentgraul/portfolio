@@ -21,8 +21,8 @@ export default function Projects(): JSX.Element {
         renderFooter={() => (
           <FooterInformation>D'autres projets à venir...</FooterInformation>
         )}
-        full={resolution.isTabletOrLower()}
-        radius={resolution.isLaptopOrUpper()}
+        full={resolution.isTabletOrLower}
+        radius={resolution.isLaptopOrUpper}
       >
         <ProjectContainer>
           <Thumbnail

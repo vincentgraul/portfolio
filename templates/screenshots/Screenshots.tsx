@@ -6,7 +6,7 @@ import Section, {
 } from "../../components/section/Section";
 import HeaderWithTitle from "../../components/card/Header";
 import Card from "../../components/card/Card";
-import useScrollTo from "@react-components/scroll-to";
+import useScrollTo from "@vincentgraul/react-components/scroll-to";
 
 interface Props extends Pick<SectionProps, "separator"> {
   values: string[];
@@ -36,11 +36,11 @@ export default function Screenshots(props: Props): JSX.Element {
     <Section separator={separator}>
       <Card
         renderHeader={() => <HeaderWithTitle title="Images" center />}
-        full={resolution.isTabletOrLower()}
-        radius={resolution.isLaptopOrUpper()}
+        full={resolution.isTabletOrLower}
+        radius={resolution.isLaptopOrUpper}
       >
         <div ref={ref}>
-          {resolution.isTabletOrLower() ? (
+          {resolution.isTabletOrLower ? (
             <SwiperInformation>
               Swipe <SwipeImage src="/icons/swipe.svg" />
             </SwiperInformation>
@@ -54,7 +54,7 @@ export default function Screenshots(props: Props): JSX.Element {
             ))}
           </Slider>
 
-          {resolution.isTabletOrLower() ? null : (
+          {resolution.isTabletOrLower ? null : (
             <ArrowContainer>
               <Arrow
                 src="/icons/left-arrow-dark.svg"
