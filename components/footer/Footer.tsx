@@ -6,20 +6,23 @@ export default function Footer(): JSX.Element {
   return (
     <Container>
       <Linkedin
+        name="linkedin"
         href="http://www.linkedin.com/in/vincentgraul"
         target="_blank"
         src="/logo/social/linkedin.svg"
       />
 
       <Github
+        name="github"
         href="https://github.com/vincentgraul"
         target="_blank"
         src="/logo/social/github.svg"
       />
 
-      <Mail target="_blank" src="/logo/social/mail.svg" />
+      <Mail name="mail" target="_blank" src="/logo/social/mail.svg" />
 
       <Medium
+        name="medium"
         href="https://medium.com/@vincentgraul"
         target="_blank"
         src="/logo/social/medium.svg"

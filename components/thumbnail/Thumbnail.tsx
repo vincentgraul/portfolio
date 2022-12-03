@@ -17,7 +17,7 @@ export default function Thumbnail(props: Props): JSX.Element {
       onClick={() => onOpen && onOpen()}
       pointer={onOpen !== undefined}
     >
-      <Image className="thumbnail__image" src={src}></Image>
+      <Image className="thumbnail__image" src={src} alt={text}></Image>
       {text && <Label>{text}</Label>}
     </Container>
   );
