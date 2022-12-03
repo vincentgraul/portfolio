@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../templates/header/Header";
-import Screenshots from "../../templates/screenshots/Screenshots";
+import Header from "../../components/header/Header";
+import Screenshots from "../../components/screenshots/Screenshots";
 import About from "./sections/About";
 import Technologies from "./sections/Technologies";
 

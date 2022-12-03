@@ -7,7 +7,7 @@ export default function About(): JSX.Element {
   const { resolution } = useContext(ThemeContext);
 
   return (
-    <Section separator>
+    <Section>
       <Card
         full={resolution.isTabletOrLower}
         radius={resolution.isLaptopOrUpper}

@@ -8,7 +8,6 @@ export default function Header(): JSX.Element {
         Vincent Graul <br /> Développeur Front-end <br />{" "}
         <TextBackground>React</TextBackground>
       </Title>
-      <BlocksLine src="/shapes/blocks-line.svg" />
     </Container>
   );
 }
@@ -18,6 +17,7 @@ const Container = styled.div`
   flex-flow: column;
   align-items: center;
   position: relative;
+  margin-bottom: 12vw;
 `;
 
 const TextBackground = styled.span`
@@ -28,15 +28,12 @@ padding: 0.5vh 1.5vw;
 display: inline-block;
 font-weight: 800;
 margin-top: 4vw;
-border: 0.7vw dashed ${theme.colors.dark.secondary};
 
 @media ${theme.breakpoints.tabletOrLower} {
-  border-width: 1vw;
   padding: 0.5vh 3vw; 
 
   @media ${theme.breakpoints.portrait} {
     margin-top: 4vh;
-    border-width: 1.4vw;
   }
 }
 `}
@@ -55,23 +52,6 @@ color: ${theme.colors.light.primary};
 
   @media ${theme.breakpoints.portrait} {
     font-size: 16vw;
-  }
-}
-`}
-`;
-
-const BlocksLine = styled.img`
-  ${({ theme }) => `
-margin: 5vw 0;
-width: 30%;
-
-@media ${theme.breakpoints.tabletOrLower} {
-  margin: 8vw 0;
-  width: 60%;
-  
-  @media ${theme.breakpoints.portrait} {
-    margin: 8vh 0;
-    width: 70%;
   }
 }
 `}

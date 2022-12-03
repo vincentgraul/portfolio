@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../templates/header/Header";
-import Screenshots from "../../templates/screenshots/Screenshots";
+import Header from "../../components/header/Header";
+import Screenshots from "../../components/screenshots/Screenshots";
 import About from "./sections/About";
 import Technologies from "./sections/Technologies";
 import Video from "./sections/Video";
@@ -17,7 +17,6 @@ export default function Mooncello(): JSX.Element {
       <About />
       <Technologies />
       <Screenshots
-        separator
         values={[
           "/img/mooncello/setup_welcome.png",
           "/img/mooncello/setup_configuration.png",

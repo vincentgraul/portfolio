@@ -1,20 +1,20 @@
 import React, { useContext, useRef } from "react";
 import Slider, { Settings } from "react-slick";
 import styled, { ThemeContext } from "styled-components";
+import useScrollTo from "@vincentgraul/react-components/scroll-to";
 import Section, {
   Props as SectionProps,
 } from "../../components/section/Section";
 import HeaderWithTitle from "../../components/card/Header";
 import Card from "../../components/card/Card";
-import useScrollTo from "@vincentgraul/react-components/scroll-to";
 
-interface Props extends Pick<SectionProps, "separator"> {
+interface Props extends SectionProps {
   values: string[];
   size?: number;
 }
 
 export default function Screenshots(props: Props): JSX.Element {
-  const { values, size, separator } = props;
+  const { values, size } = props;
   const { resolution } = useContext(ThemeContext);
   const slider = useRef<Slider>(null);
   const ref = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export default function Screenshots(props: Props): JSX.Element {
   };
 
   return (
-    <Section separator={separator}>
+    <Section>
       <Card
         renderHeader={() => <HeaderWithTitle title="Images" center />}
         full={resolution.isTabletOrLower}
@@ -57,14 +57,14 @@ export default function Screenshots(props: Props): JSX.Element {
           {resolution.isTabletOrLower ? null : (
             <ArrowContainer>
               <Arrow
-                src="/icons/left-arrow-dark.svg"
+                src="/icons/arrow/black/left-arrow.svg"
                 onClick={() => {
                   scrollToTop();
                   slider.current?.slickPrev();
                 }}
               />
               <Arrow
-                src="/icons/right-arrow-dark.svg"
+                src="/icons/arrow/black/right-arrow.svg"
                 onClick={() => {
                   scrollToTop();
                   slider.current?.slickNext();

@@ -12,7 +12,7 @@ export default function Technologies(): JSX.Element {
   const { resolution } = useContext(ThemeContext);
 
   return (
-    <Section separator>
+    <Section>
       <Card
         renderHeader={() => (
           <HeaderWithTitle title="Technologies utilisées" center />

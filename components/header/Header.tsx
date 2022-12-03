@@ -15,7 +15,10 @@ export default function Header(props: Props): JSX.Element {
 
   return (
     <Container>
-      <Arrow src="/icons/left-arrow.svg" onClick={() => router.push("/")} />
+      <Arrow
+        src="/icons/arrow/green/left-arrow.svg"
+        onClick={() => router.push("/")}
+      />
       <TitleContainer>
         <Title>{title}</Title>
         {resolution.isTabletOrLower && <SubTitle>{subtitle}</SubTitle>}

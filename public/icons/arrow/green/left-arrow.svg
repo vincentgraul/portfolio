@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="40px" viewBox="0 0 60 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Triangle</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="left-arrow-2" transform="translate(0.000000, 0.000000)" fill="#55E6C1" fill-rule="nonzero">
+            <polygon id="Triangle" transform="translate(29.946760, 20.000000) scale(-1, 1) rotate(90.000000) translate(-29.946760, -20.000000) " points="29.9467598 -9.9467599 49.9467599 21.1643512 37.3828795 21.1643512 37.3828795 49.94676 23.0739177 49.94676 23.0739177 21.1643512 9.9467599 21.1643512"></polygon>
+        </g>
+    </g>
+</svg>

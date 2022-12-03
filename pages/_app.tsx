@@ -11,7 +11,7 @@ import useScrollTo from "@vincentgraul/react-components/scroll-to";
 import { AppProps } from "next/app";
 import { NextPageContext } from "next";
 import styled, { ThemeProvider } from "styled-components";
-import Footer from "./home/sections/Footer";
+import Footer from "../components/footer/Footer";
 
 export interface Theme {
   colors: Colors;

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="64px" height="44px" viewBox="0 0 64 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>left-arrow</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="6" stroke-linecap="square" stroke-linejoin="round">
-        <g id="left-arrow" transform="translate(32.000000, 21.500000) scale(-1, 1) translate(-32.000000, -21.500000) translate(2.000000, 1.000000)" fill="#55E6C1" fill-rule="nonzero" stroke="#000000" stroke-width="3">
-            <path d="M29.9999999,-8.99999995 L50,22.1111111 L37.4361196,22.1111111 L37.4361196,50.8935199 L23.1271578,50.8935199 L23.1271578,22.1111111 L9.99999995,22.1111111 L29.9999999,-8.99999995 Z" id="Triangle" transform="translate(30.000000, 20.946760) scale(-1, 1) rotate(90.000000) translate(-30.000000, -20.946760) "></path>
-        </g>
-    </g>
-</svg>
