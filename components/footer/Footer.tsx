@@ -39,6 +39,7 @@ justify-content: center;
 background-color: ${theme.colors.primary};
 min-height: 20vh;
 border-top: 0.2vw dashed ${theme.colors.dark.secondary};
+border-width: 0.3vw;
 
 @media ${theme.breakpoints.tabletOrLower} {
   min-height: 20vw;
@@ -46,11 +47,11 @@ border-top: 0.2vw dashed ${theme.colors.dark.secondary};
   @media ${theme.breakpoints.portrait} {
     justify-content: space-evenly;
     min-height: 20vh;
-    border-width: 2vw;
+    border-width: 0.8vw;
   }
 
   @media ${theme.breakpoints.landscape} {
-    border-width: 0.8vw;
+    border-width: 0.5vw;
   }
 }
 `}
@@ -85,7 +86,17 @@ margin: 0 3vw;
 `;
 
 const Medium = styled(BubbleLink)`
+  ${({ theme }) => `
   margin-left: 5vw;
+
+  @media ${theme.breakpoints.tabletOrLower} {
+    margin-left: 5vw;
+  
+    @media ${theme.breakpoints.portrait} {
+      margin-left: 0;
+    }
+  }
+  `}
 `;
 
 const Mail = styled(BubbleLink)`
