@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react";
 import Slider, { Settings } from "react-slick";
 import styled, { ThemeContext } from "styled-components";
+import { motion } from "framer-motion";
 import useScrollTo from "@vincentgraul/react-components/scroll-to";
 import Section, {
   Props as SectionProps,
@@ -14,7 +15,7 @@ interface Props extends SectionProps {
 }
 
 export default function Screenshots(props: Props): JSX.Element {
-  const { values, size } = props;
+  const { values, size, animation } = props;
   const { resolution } = useContext(ThemeContext);
   const slider = useRef<Slider>(null);
   const ref = useRef<HTMLDivElement>(null);
@@ -33,7 +34,7 @@ export default function Screenshots(props: Props): JSX.Element {
   };
 
   return (
-    <Section>
+    <Section animation={animation}>
       <Card
         renderHeader={() => <HeaderWithTitle title="Images" center />}
         full={resolution.isTabletOrLower}
@@ -62,6 +63,8 @@ export default function Screenshots(props: Props): JSX.Element {
                   scrollToTop();
                   slider.current?.slickPrev();
                 }}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.5 }}
               />
               <Arrow
                 src="/icons/arrow/black/right-arrow.svg"
@@ -69,6 +72,8 @@ export default function Screenshots(props: Props): JSX.Element {
                   scrollToTop();
                   slider.current?.slickNext();
                 }}
+                whileHover={{ scale: 1.2 }}
+                transition={{ duration: 0.5 }}
               />
             </ArrowContainer>
           )}
@@ -84,7 +89,7 @@ const ArrowContainer = styled.div`
   margin-top: 3.5vw;
 `;
 
-const Arrow = styled.img`
+const Arrow = styled(motion.img)`
   width: 7vw;
   height: auto;
   cursor: pointer;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 interface Props {
   src: string;
@@ -16,6 +17,8 @@ export default function Thumbnail(props: Props): JSX.Element {
       className={`${className} thumbnail`}
       onClick={() => onOpen && onOpen()}
       pointer={onOpen !== undefined}
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.5 }}
     >
       <Image className="thumbnail__image" src={src} alt={text}></Image>
       {text && <Label>{text}</Label>}
@@ -23,7 +26,7 @@ export default function Thumbnail(props: Props): JSX.Element {
   );
 }
 
-const Container = styled.div<{ pointer?: boolean }>`
+const Container = styled(motion.div)<{ pointer?: boolean }>`
   display: flex;
   flex-flow: column;
   align-items: center;
