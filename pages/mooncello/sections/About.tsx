@@ -7,7 +7,7 @@ export default function About(): JSX.Element {
   const { resolution } = useContext(ThemeContext);
 
   return (
-    <Section>
+    <Section animation>
       <Card
         full={resolution.isTabletOrLower}
         radius={resolution.isLaptopOrUpper}

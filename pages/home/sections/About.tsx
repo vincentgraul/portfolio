@@ -9,7 +9,7 @@ export default function About(): JSX.Element {
   const { resolution } = useContext<Theme>(ThemeContext);
 
   return (
-    <Section>
+    <Section animation>
       <Card
         full={resolution.isTabletOrLower}
         radius={resolution.isLaptopOrUpper}
@@ -27,9 +27,9 @@ export default function About(): JSX.Element {
           soit entre collègues, avec des personnes novices, ou autres…
         </Text>
 
-        <CVButton as="a" href="/cv.pdf" target="_blank">
-          Voir mon CV
-        </CVButton>
+        <a href="/cv.pdf" target="_blank">
+          <CVButton>Voir mon CV</CVButton>
+        </a>
       </Card>
     </Section>
   );

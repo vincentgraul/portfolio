@@ -13,7 +13,7 @@ export default function Skills(): JSX.Element {
   const { resolution } = useContext<Theme>(ThemeContext);
 
   return (
-    <Section>
+    <Section animation>
       <Card
         renderHeader={() => <HeaderWithTitle title="Mes compétences" center />}
         full={resolution.isTabletOrLower}

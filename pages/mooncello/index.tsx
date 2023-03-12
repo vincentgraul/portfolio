@@ -17,6 +17,7 @@ export default function Mooncello(): JSX.Element {
       <About />
       <Technologies />
       <Screenshots
+        animation
         values={[
           "/img/mooncello/setup_welcome.png",
           "/img/mooncello/setup_configuration.png",
