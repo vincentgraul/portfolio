@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 interface Props {
   title: string;
@@ -18,13 +19,35 @@ export default function Header(props: Props): JSX.Element {
       <Arrow
         src="/icons/arrow/green/left-arrow.svg"
         onClick={() => router.push("/")}
+        whileHover={{ scale: 1.2 }}
+        transition={{ duration: 0.5 }}
       />
       <TitleContainer>
         <Title>{title}</Title>
-        {resolution.isTabletOrLower && <SubTitle>{subtitle}</SubTitle>}
+        {resolution.isTabletOrLower && (
+          <SubTitle
+            animate={{
+              x: "50vw",
+              opacity: 1,
+            }}
+            transition={{ ease: "easeOut", duration: 0.7 }}
+          >
+            {subtitle}
+          </SubTitle>
+        )}
         <Logo src={logo} />
       </TitleContainer>
-      {resolution.isLaptopOrUpper && <SubTitle>{subtitle}</SubTitle>}
+      {resolution.isLaptopOrUpper && (
+        <SubTitle
+          animate={{
+            x: "30vw",
+            opacity: 1,
+          }}
+          transition={{ ease: "easeOut", duration: 0.7 }}
+        >
+          {subtitle}
+        </SubTitle>
+      )}
     </Container>
   );
 }
@@ -52,7 +75,7 @@ const TitleContainer = styled.div`
 `}
 `;
 
-const Arrow = styled.img`
+const Arrow = styled(motion.img)`
   ${({ theme }) => `
   width: 10vw;
   margin-bottom: 9vh;
@@ -85,14 +108,18 @@ const Title = styled.h1`
   }`}
 `;
 
-const SubTitle = styled.h2`
+const SubTitle = styled(motion.h2)`
   ${({ theme }) => `
   font-size: 3.7vw;
   margin: 0;
+  position: relative;
+  left: -30vw;
+  opacity: 0;
 
   @media ${theme.breakpoints.tabletOrLower} {
     font-size: 5vw;
     margin: 2vw 0 6vw 0;
+    left: -50vw;
 
     @media ${theme.breakpoints.portrait} {
       font-size: 7.5vw;

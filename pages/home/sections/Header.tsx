@@ -1,12 +1,23 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
+import { motion } from "framer-motion";
 
 export default function Header(): JSX.Element {
+  const { resolution } = useContext(ThemeContext);
+
   return (
     <Container>
       <Title>
         Vincent Graul <br /> Développeur Front-end <br />{" "}
-        <TextBackground>React</TextBackground>
+        <TextBackground
+          animate={{
+            x: resolution.isLaptopOrUpper ? "30vw" : "50vw",
+            opacity: 1,
+          }}
+          transition={{ ease: "easeOut", duration: 0.7 }}
+        >
+          React
+        </TextBackground>
       </Title>
     </Container>
   );
@@ -20,7 +31,7 @@ const Container = styled.div`
   margin-bottom: 12vw;
 `;
 
-const TextBackground = styled.span`
+const TextBackground = styled(motion.span)`
   ${({ theme }) => `
 background-color: ${theme.colors.primary};
 color: ${theme.colors.dark.secondary};
@@ -28,9 +39,13 @@ padding: 0.5vh 1.5vw;
 display: inline-block;
 font-weight: 800;
 margin-top: 4vw;
+position: relative;
+left: -30vw;
+opacity: 0;
 
 @media ${theme.breakpoints.tabletOrLower} {
   padding: 0.5vh 3vw; 
+  left: -50vw;
 
   @media ${theme.breakpoints.portrait} {
     margin-top: 4vh;
