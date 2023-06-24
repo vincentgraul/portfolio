@@ -1,8 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import BubbleLink from "../bubble-link/BubbleLink";
+import { useModalStore } from "../../store/modal";
+import ContactModal from "../modal/ContactModal";
 
 export default function Footer(): JSX.Element {
+  const { showModal } = useModalStore();
+
+  const displayEmailModal = () => {
+    showModal(ContactModal);
+  };
+
   return (
     <Container>
       <Linkedin
@@ -19,7 +27,12 @@ export default function Footer(): JSX.Element {
         src="/logo/social/github.svg"
       />
 
-      <Mail name="mail" target="_blank" src="/logo/social/mail.svg" />
+      <Mail
+        href="javascript:undefined;"
+        name="mail"
+        src="/logo/social/mail.svg"
+        onClick={displayEmailModal}
+      />
 
       <Medium
         name="medium"
