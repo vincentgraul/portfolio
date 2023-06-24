@@ -15,12 +15,8 @@ export default function Projects(): JSX.Element {
   return (
     <Section>
       <Card
-        renderHeader={() => (
-          <HeaderWithTitle title="Mes projets personnels" center />
-        )}
-        renderFooter={() => (
-          <FooterInformation>D'autres projets à venir...</FooterInformation>
-        )}
+        renderHeader={() => <HeaderWithTitle title="Mes créations" center />}
+        renderFooter={() => <FooterInformation>D'autres projets à venir...</FooterInformation>}
         full={resolution.isTabletOrLower}
         radius={resolution.isLaptopOrUpper}
       >

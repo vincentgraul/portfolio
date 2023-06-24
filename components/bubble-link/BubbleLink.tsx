@@ -8,10 +8,10 @@ interface Props extends HTMLProps<HTMLAnchorElement> {
 }
 
 export default function BubbleLink(props: Props): JSX.Element {
-  const { name, className, src, href, target } = props;
+  const { name, className, src, href, target, ...rest } = props;
 
   return (
-    <a className={`${className}`} href={href} target={target}>
+    <a className={`${className}`} href={href} target={target} {...rest}>
       <Image
         className="image"
         src={src}
