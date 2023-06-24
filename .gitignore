@@ -87,6 +87,7 @@ jspm_packages/
 .yarn-integrity
 .env
 .env.test
+.env.local
 
 ### Next ###
 .next
