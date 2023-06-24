@@ -37,8 +37,8 @@ const Image = styled.img`
   ${({ theme }) => `
   width: 9vw;
   height: 9vw;
-  border: 0.25vw solid ${theme.colors.dark.primary};
-  border-radius: 10px;
+  border: 0.25vw solid ${theme.colors.dark.secondary};
+  border-radius: 1.2vw;
   padding: 1vw;
   &:hover {
     background-color: ${theme.colors.light.secondary};
@@ -54,6 +54,7 @@ const Image = styled.img`
       height: 30vw;
       padding: 3vw;
       border-width: 0.8vw;
+      border-radius: 1.2vh;
     }
   }
 `}

@@ -9,11 +9,7 @@ import Video from "./sections/Video";
 export default function Mooncello(): JSX.Element {
   return (
     <Container>
-      <Header
-        title="Mooncello"
-        subtitle="CMS Headless"
-        logo="/logo/mooncello.svg"
-      />
+      <Header title="Mooncello" subtitle="CMS Headless" logo="/logo/mooncello.svg" />
       <About />
       <Technologies />
       <Screenshots

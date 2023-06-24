@@ -35,17 +35,19 @@ margin-bottom: 8vw;
 
 const Title = styled.h3`
   ${({ theme }) => `
-border-bottom: 3px solid ${theme.colors.dark.primary};
+border-bottom: 0.3vw solid ${theme.colors.dark.secondary};
 padding-bottom: 1vw;
 font-size: 3vw;
 
 @media ${theme.breakpoints.tabletOrLower} {
   font-size: 6vw;
   padding-bottom: 2vw;
+  border-width: 0.5vw;
 
   @media ${theme.breakpoints.portrait} {
     font-size: 8vw;
     padding-bottom: 2vh;
+    border-width: 0.5vh;
   }
 }
 `}
