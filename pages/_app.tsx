@@ -12,6 +12,7 @@ import { AppProps } from "next/app";
 import { NextPageContext } from "next";
 import styled, { ThemeProvider } from "styled-components";
 import Footer from "../components/footer/Footer";
+import Modal from "../components/modal/Modal";
 
 export interface Theme {
   colors: Colors;
@@ -27,15 +28,13 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   useScrollTo(ref);
 
-  const { resolution, breakpoints } = useMatchResolution(
-    undefined,
-    pageProps.UA
-  );
+  const { resolution, breakpoints } = useMatchResolution(undefined, pageProps.UA);
   const theme: Theme = { colors, resolution, breakpoints };
 
   return (
     <ThemeProvider theme={theme}>
       <Container ref={ref}>
+        <Modal />
         <Component {...pageProps} />
 
         <Footer />
