@@ -16,8 +16,8 @@ export default function Skills(): JSX.Element {
     <Section animation>
       <Card
         renderHeader={() => <HeaderWithTitle title="Mes compétences" center />}
-        full={resolution.isTabletOrLower}
-        radius={resolution.isLaptopOrUpper}
+        $full={resolution.isTabletOrLower}
+        $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>

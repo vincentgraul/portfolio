@@ -17,8 +17,8 @@ export default function Projects(): JSX.Element {
       <Card
         renderHeader={() => <HeaderWithTitle title="Mes créations" center />}
         renderFooter={() => <FooterInformation>D'autres projets à venir...</FooterInformation>}
-        full={resolution.isTabletOrLower}
-        radius={resolution.isLaptopOrUpper}
+        $full={resolution.isTabletOrLower}
+        $radius={resolution.isLaptopOrUpper}
       >
         <ProjectContainer>
           <Thumbnail

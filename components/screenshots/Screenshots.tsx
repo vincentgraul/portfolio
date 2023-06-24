@@ -3,9 +3,7 @@ import Slider, { Settings } from "react-slick";
 import styled, { ThemeContext } from "styled-components";
 import { motion } from "framer-motion";
 import useScrollTo from "@vincentgraul/react-components/scroll-to";
-import Section, {
-  Props as SectionProps,
-} from "../../components/section/Section";
+import Section, { Props as SectionProps } from "../../components/section/Section";
 import HeaderWithTitle from "../../components/card/Header";
 import Card from "../../components/card/Card";
 
@@ -37,8 +35,8 @@ export default function Screenshots(props: Props): JSX.Element {
     <Section animation={animation}>
       <Card
         renderHeader={() => <HeaderWithTitle title="Images" center />}
-        full={resolution.isTabletOrLower}
-        radius={resolution.isLaptopOrUpper}
+        $full={resolution.isTabletOrLower}
+        $radius={resolution.isLaptopOrUpper}
       >
         <div ref={ref}>
           {resolution.isTabletOrLower ? (

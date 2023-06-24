@@ -16,7 +16,7 @@ export default function Thumbnail(props: Props): JSX.Element {
     <Container
       className={`${className} thumbnail`}
       onClick={() => onOpen && onOpen()}
-      pointer={onOpen !== undefined}
+      $pointer={onOpen !== undefined}
       whileHover={{ scale: 1.08 }}
       transition={{ duration: 0.5 }}
     >
@@ -26,11 +26,11 @@ export default function Thumbnail(props: Props): JSX.Element {
   );
 }
 
-const Container = styled(motion.div)<{ pointer?: boolean }>`
+const Container = styled(motion.div)<{ $pointer?: boolean }>`
   display: flex;
   flex-flow: column;
   align-items: center;
-  cursor: ${({ pointer }) => (pointer ? "pointer" : "initial")};
+  cursor: ${({ $pointer }) => ($pointer ? "pointer" : "initial")};
 `;
 
 const Image = styled.img`

@@ -11,8 +11,8 @@ export default function Video(): JSX.Element {
     <Section>
       <Card
         renderHeader={() => <HeaderWithTitle title="Vidéo" center />}
-        full={resolution.isTabletOrLower}
-        radius={resolution.isLaptopOrUpper}
+        $full={resolution.isTabletOrLower}
+        $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <StyledIFrame

@@ -14,11 +14,9 @@ export default function Technologies(): JSX.Element {
   return (
     <Section animation>
       <Card
-        renderHeader={() => (
-          <HeaderWithTitle title="Technologies utilisées" center />
-        )}
-        full={resolution.isTabletOrLower}
-        radius={resolution.isLaptopOrUpper}
+        renderHeader={() => <HeaderWithTitle title="Technologies utilisées" center />}
+        $full={resolution.isTabletOrLower}
+        $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>

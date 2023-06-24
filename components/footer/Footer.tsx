@@ -27,12 +27,7 @@ export default function Footer(): JSX.Element {
         src="/logo/social/github.svg"
       />
 
-      <Mail
-        href="javascript:undefined;"
-        name="mail"
-        src="/logo/social/mail.svg"
-        onClick={displayEmailModal}
-      />
+      <Mail href={void 0} name="mail" src="/logo/social/mail.svg" onClick={displayEmailModal} />
 
       <Medium
         name="medium"
@@ -115,6 +110,7 @@ const Medium = styled(BubbleLink)`
 const Mail = styled(BubbleLink)`
   ${({ theme }) => `
 margin-left: 3vw;
+cursor: pointer;
 
 @media ${theme.breakpoints.tabletOrLower} {
   margin-left: 3vw;

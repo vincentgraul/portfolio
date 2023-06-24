@@ -13,7 +13,10 @@ export default function About(): JSX.Element {
 
   return (
     <Section animation>
-      <Card full={resolution.isTabletOrLower} radius={resolution.isLaptopOrUpper}>
+      <Card
+        $full={resolution.isTabletOrLower}
+        $radius={resolution.isLaptopOrUpper ? true : undefined}
+      >
         <Text>
           Bonjour, je suis Vincent Graul. <br /> <br />
           Je suis passionné par le développement web et d’applications mobiles. J’aime me lancer des

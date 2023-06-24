@@ -10,24 +10,20 @@ export default function About(): JSX.Element {
 
   return (
     <Section animation>
-      <Card
-        full={resolution.isTabletOrLower}
-        radius={resolution.isLaptopOrUpper}
-      >
+      <Card $full={resolution.isTabletOrLower} $radius={resolution.isLaptopOrUpper}>
         <Fragment>
           <Text>
-            Countries Quiz est une application mobile qui vous propose d'évaluer
-            vos connaissances sur les différents pays du monde.
+            Countries Quiz est une application mobile qui vous propose d'évaluer vos connaissances
+            sur les différents pays du monde.
             <br />
-            Actuellement, deux quiz sont proposés : les drapeaux et les
-            capitales.
+            Actuellement, deux quiz sont proposés : les drapeaux et les capitales.
             <br />
             <br />
-            Étant curieux d'histoire et de géographie, l'idée de cette
-            application m'est venue naturellement.
+            Étant curieux d'histoire et de géographie, l'idée de cette application m'est venue
+            naturellement.
             <br />
-            De plus, j'ai entrepris ce projet pour me perfectionner dans
-            l'univers du mobile ainsi que mes compétences en React Native.
+            De plus, j'ai entrepris ce projet pour me perfectionner dans l'univers du mobile ainsi
+            que mes compétences en React Native.
             <br />
             <br />
             Pour finir, les données de Countries Quiz sont administrées par{" "}
