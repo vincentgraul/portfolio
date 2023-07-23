@@ -8,7 +8,9 @@ import colors from "../../styles/colors";
 import { useModalStore } from "../../store/modal";
 import InformationModal from "./InformationModal";
 import ErrorField from "../error-field/ErrorField";
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
+import { useLoaderStore } from "../../store/loader";
+import ReCAPTCHA from "react-google-recaptcha";
 
 type Inputs = {
   name: string;
@@ -17,8 +19,11 @@ type Inputs = {
 };
 
 export default function ContactModal() {
-  const { hideModal, showModal } = useModalStore();
+  const { showModal, hideModal } = useModalStore();
+  const { showLoader, hideLoader } = useLoaderStore();
   const { resolution } = useContext(ThemeContext);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [isCaptchaEmpty, setCaptchaEmpty] = useState<boolean>(false);
 
   const schema = z.object({
     name: z.string().min(1, { message: "Ce champ est requis" }),
@@ -32,22 +37,58 @@ export default function ContactModal() {
     formState: { errors },
   } = useForm<Inputs>({ resolver: zodResolver(schema) });
 
-  const handleOnSubmit: SubmitHandler<Inputs> = async (data) => {
-    const { name, email, text } = data;
+  const checkCaptcha = () => {
+    let isValid: boolean = false;
+    let token: string | null = null;
 
-    const { status } = await axios.post("/api/email", { name, email, text });
-    hideModal();
-    showInformation(status);
+    if (recaptchaRef && recaptchaRef.current && recaptchaRef.current.getValue()) {
+      isValid = true;
+      token = recaptchaRef.current.getValue();
+    } else {
+      isValid = false;
+    }
+
+    return { isCaptchaValid: isValid, captchaToken: token };
   };
 
-  const showInformation = (status: number) => {
+  const handleOnChangeCaptcha = () => {
+    if (recaptchaRef && recaptchaRef.current && recaptchaRef.current.getValue()) {
+      setCaptchaEmpty(false);
+    } else {
+      setCaptchaEmpty(true);
+    }
+  };
+
+  const handleOnSubmit: SubmitHandler<Inputs> = async (data) => {
+    const { name, email, text } = data;
+    const { isCaptchaValid, captchaToken } = checkCaptcha();
+    let hasError: boolean = false;
+
+    if (isCaptchaValid) {
+      try {
+        showLoader("Envoie du message...");
+        await axios.post("/api/email", { name, email, text, captchaToken });
+      } catch (e) {
+        console.error(e);
+        hasError = true;
+      } finally {
+        hideLoader();
+        hideModal();
+        showInformation(hasError);
+      }
+    } else {
+      setCaptchaEmpty(true);
+    }
+  };
+
+  const showInformation = (hasError: boolean) => {
     let icon = "/icons/success.svg";
     let text = "Votre message a bien été envoyé !";
 
-    if (status === 404) {
+    if (hasError) {
       icon = "/icons/error.svg";
-      text =
-        "Malheureusement votre message n'a pas pu être envoyé. Veuillez réessayer ultérieurement, merci.";
+      text = `Malheureusement votre message n'a pas pu être envoyé.
+      Veuillez réessayer ultérieurement.`;
     }
 
     showModal(InformationModal, { icon, text });
@@ -92,6 +133,17 @@ export default function ContactModal() {
           ></TextArea>
           {errors.text?.message && <Error text={errors.text.message} />}
         </Label>
+
+        {process.env.NEXT_PUBLIC_CAPTCHA_KEY && (
+          <>
+            <Captcha
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_CAPTCHA_KEY}
+              onChange={handleOnChangeCaptcha}
+            />
+            {isCaptchaEmpty && <Error text="Ce champ est requis" />}
+          </>
+        )}
 
         <Submit type="submit">Envoyer</Submit>
       </Form>
@@ -176,7 +228,7 @@ const TextArea = styled.textarea`
 
 const Submit = styled(Button)`
   ${({ theme }) => `
-  margin-top: 1vw;
+  margin-top: 3vw;
   padding: 0.5vw;
   align-self: center;
   width: 80%;
@@ -199,4 +251,8 @@ const Form = styled.form`
 
 const Error = styled(ErrorField)`
   margin-top: 1vw;
+`;
+
+const Captcha = styled(ReCAPTCHA)`
+  margin: auto;
 `;
