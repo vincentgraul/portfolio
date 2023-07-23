@@ -23,10 +23,30 @@ const Container = styled.div`
 `;
 
 const Icon = styled.img`
+  ${({ theme }) => `
   width: 6vw;
+
+  @media ${theme.breakpoints.tabletOrLower} {
+    @media ${theme.breakpoints.portrait} {
+      width: 8vh;
+    }
+  }
+`}
 `;
 
 const Text = styled.p`
+  ${({ theme }) => `
   margin-top: 2vw;
   text-align: center;
+  white-space: pre-wrap;
+  font-size: 1.4vw;
+
+  @media ${theme.breakpoints.tabletOrLower} {
+    font-size: 2vw;
+
+    @media ${theme.breakpoints.portrait} {
+      font-size: 2.5vh;
+    }
+  }
+`}
 `;
