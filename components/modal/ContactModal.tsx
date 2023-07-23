@@ -254,5 +254,11 @@ const Error = styled(ErrorField)`
 `;
 
 const Captcha = styled(ReCAPTCHA)`
+  ${({ theme }) => `
   margin: auto;
+
+  @media ${theme.breakpoints.mobile} {
+    transform:scale(0.77);
+  }
+`}
 `;
