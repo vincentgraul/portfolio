@@ -14,6 +14,7 @@ import styled, { ThemeProvider } from "styled-components";
 import Footer from "../components/footer/Footer";
 import Modal from "../components/modal/Modal";
 import Loader from "../components/loader/Loader";
+import Head from "next/head";
 
 export interface Theme {
   colors: Colors;
@@ -33,15 +34,22 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   const theme: Theme = { colors, resolution, breakpoints };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container ref={ref}>
-        <Loader />
-        <Modal />
-        <Component {...pageProps} />
+    <>
+      <Head>
+        <title>Vincent Graul - Développeur front-end React</title>
+        <meta name="description" content="Vincent Graul - Développeur front-end React" />
+      </Head>
 
-        <Footer />
-      </Container>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Container ref={ref}>
+          <Loader />
+          <Modal />
+          <Component {...pageProps} />
+
+          <Footer />
+        </Container>
+      </ThemeProvider>
+    </>
   );
 }
 
