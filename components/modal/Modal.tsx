@@ -1,16 +1,18 @@
 import styled from "styled-components";
 import { useModalStore } from "../../store/modal";
 import ReactComponentsModal from "@vincentgraul/react-components/modal";
+import { useLoaderStore } from "../../store/loader";
 
 export default function Modal() {
   const { isVisible, Component, ComponentProps, hideModal } = useModalStore();
+  const { isLoading } = useLoaderStore();
 
   if (!isVisible || !Component) {
     return null;
   }
 
   return (
-    <Container onClickedOutside={() => hideModal()}>
+    <Container onClickedOutside={() => !isLoading && hideModal()}>
       <Component {...ComponentProps} />
     </Container>
   );

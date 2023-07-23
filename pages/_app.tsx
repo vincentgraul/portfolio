@@ -13,6 +13,7 @@ import { NextPageContext } from "next";
 import styled, { ThemeProvider } from "styled-components";
 import Footer from "../components/footer/Footer";
 import Modal from "../components/modal/Modal";
+import Loader from "../components/loader/Loader";
 
 export interface Theme {
   colors: Colors;
@@ -34,6 +35,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <Container ref={ref}>
+        <Loader />
         <Modal />
         <Component {...pageProps} />
 
