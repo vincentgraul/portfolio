@@ -3,14 +3,16 @@ import styled, { ThemeContext } from "styled-components";
 import Section from "../../../components/section/Section";
 import HeaderWithTitle from "../../../components/card/Header";
 import Card from "../../../components/card/Card";
+import { useTranslation } from "react-i18next";
 
 export default function Video(): JSX.Element {
   const { resolution } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <Section>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Vidéo" center />}
+        renderHeader={() => <HeaderWithTitle title={t("common:video")} center />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

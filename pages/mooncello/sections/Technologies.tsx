@@ -7,20 +7,22 @@ import Row from "../../../components/tag/Row";
 import Label from "../../../components/tag/Label";
 import Tag from "../../../components/tag/Tag";
 import List from "../../../components/tag/List";
+import { useTranslation } from "react-i18next";
 
 export default function Technologies(): JSX.Element {
   const { resolution } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Technologies utilisées" center />}
+        renderHeader={() => <HeaderWithTitle title={t("mooncello:technologies.title")} center />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
-            <Label>Langage</Label>
+            <Label>{t("common:language")}</Label>
             <List flex={6}>
               <Tag>TypeScript</Tag>
               <Tag>HTML</Tag>
@@ -30,7 +32,7 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>Front-end</Label>
+            <Label>{t("common:front-end")}</Label>
             <List flex={6}>
               <Tag>React</Tag>
               <Tag>Redux</Tag>
@@ -41,7 +43,7 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>Back-end</Label>
+            <Label>{t("common:back-end")}</Label>
             <List flex={6}>
               <Tag>Node</Tag>
               <Tag>Nest</Tag>
@@ -50,7 +52,7 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>Testing</Label>
+            <Label>{t("common:test")}</Label>
             <List flex={6}>
               <Tag>Jest</Tag>
               <Tag>Testing Library</Tag>

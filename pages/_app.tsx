@@ -9,12 +9,12 @@ import useMatchResolution, {
 } from "@vincentgraul/react-components/match-resolution";
 import useScrollTo from "@vincentgraul/react-components/scroll-to";
 import { AppProps } from "next/app";
-import { NextPageContext } from "next";
 import styled, { ThemeProvider } from "styled-components";
 import Footer from "../components/footer/Footer";
 import Modal from "../components/modal/Modal";
 import Loader from "../components/loader/Loader";
 import Head from "next/head";
+import { appWithTranslation, useTranslation } from "next-i18next";
 
 export interface Theme {
   colors: Colors;
@@ -22,11 +22,8 @@ export interface Theme {
   breakpoints: Breakpoints;
 }
 
-export interface PageProps {
-  UA: string;
-}
-
 function App({ Component, pageProps }: AppProps): JSX.Element {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   useScrollTo(ref);
 
@@ -36,8 +33,8 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>Vincent Graul - Développeur front-end React</title>
-        <meta name="description" content="Vincent Graul - Développeur front-end React" />
+        <title>{t("common:title")}</title>
+        <meta name="description" content={t("common:meta-content")} />
       </Head>
 
       <ThemeProvider theme={theme}>
@@ -53,20 +50,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   );
 }
 
-App.getInitialProps = ({ ctx }: ObjectLiteral): { pageProps: PageProps } => {
-  const { req }: NextPageContext = ctx;
-  let UA: string;
-
-  if (req && req.headers["user-agent"]) {
-    UA = req.headers["user-agent"];
-  } else {
-    UA = navigator.userAgent;
-  }
-
-  return { pageProps: { UA } };
-};
-
-export default App;
+export default appWithTranslation(App);
 
 const Container = styled.div`
   ${({ theme }) => `

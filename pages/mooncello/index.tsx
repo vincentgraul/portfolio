@@ -1,18 +1,25 @@
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/header/Header";
 import Screenshots from "../../components/screenshots/Screenshots";
+import { serverSideUA, ServerSideUAProps } from "../../utils/serverSideUA";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import About from "./sections/About";
 import Technologies from "./sections/Technologies";
 import Video from "./sections/Video";
 
 export default function Mooncello(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <Container>
-      <Header title="Mooncello" subtitle="CMS Headless" logo="/logo/mooncello.svg" />
+      <Header title="Mooncello" subtitle="Headless CMS" logo="/logo/mooncello.svg" />
       <About />
       <Technologies />
       <Screenshots
+        title={t("common:images")}
         animation
         values={[
           "/img/mooncello/setup_welcome.png",
@@ -31,6 +38,15 @@ export default function Mooncello(): JSX.Element {
     </Container>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<ServerSideUAProps> = async (
+  context: GetServerSidePropsContext
+) => ({
+  props: {
+    ...(await serverSideUA(context)),
+    ...(await serverSideTranslations(context.locale!, ["common", "mooncello"])),
+  },
+});
 
 const Container = styled.div`
   display: flex;
