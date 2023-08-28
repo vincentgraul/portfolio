@@ -13,6 +13,7 @@ export default function Section(props: Props): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
+    // @ts-ignore
     offset: ["end start", "end end"],
   });
 

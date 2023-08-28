@@ -8,12 +8,13 @@ import HeaderWithTitle from "../../components/card/Header";
 import Card from "../../components/card/Card";
 
 interface Props extends SectionProps {
+  title: string;
   values: string[];
   size?: number;
 }
 
 export default function Screenshots(props: Props): JSX.Element {
-  const { values, size, animation } = props;
+  const { title, values, size, animation } = props;
   const { resolution } = useContext(ThemeContext);
   const slider = useRef<Slider>(null);
   const ref = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ export default function Screenshots(props: Props): JSX.Element {
   return (
     <Section animation={animation}>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Images" center />}
+        renderHeader={() => <HeaderWithTitle title={title} center />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

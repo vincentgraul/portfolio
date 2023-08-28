@@ -4,6 +4,7 @@ import Link from "next/link";
 import Card from "../../../components/card/Card";
 import Section from "../../../components/section/Section";
 import { Theme } from "../../_app";
+import { Trans } from "react-i18next";
 
 export default function About(): JSX.Element {
   const { resolution } = useContext<Theme>(ThemeContext);
@@ -13,24 +14,11 @@ export default function About(): JSX.Element {
       <Card $full={resolution.isTabletOrLower} $radius={resolution.isLaptopOrUpper}>
         <Fragment>
           <Text>
-            Countries Quiz est une application mobile qui vous propose d'évaluer vos connaissances
-            sur les différents pays du monde.
-            <br />
-            Actuellement, deux quiz sont proposés : les drapeaux et les capitales.
-            <br />
-            <br />
-            Étant curieux d'histoire et de géographie, l'idée de cette application m'est venue
-            naturellement.
-            <br />
-            De plus, j'ai entrepris ce projet pour me perfectionner dans l'univers du mobile ainsi
-            que mes compétences en React Native.
-            <br />
-            <br />
-            Pour finir, les données de Countries Quiz sont administrées par{" "}
+            <Trans i18nKey="countries-quiz:about.text" />
             <Link href="/mooncello">
               <MooncelloLink>Mooncello</MooncelloLink>
             </Link>
-            , un CMS Headless que j'ai réalisé.
+            , un Headless CMS que j'ai réalisé.
           </Text>
         </Fragment>
       </Card>

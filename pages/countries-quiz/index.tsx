@@ -4,18 +4,25 @@ import Header from "../../components/header/Header";
 import Screenshots from "../../components/screenshots/Screenshots";
 import About from "./sections/About";
 import Technologies from "./sections/Technologies";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { serverSideUA, ServerSideUAProps } from "../../utils/serverSideUA";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function CountriesQuiz(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Header
         title="Countries Quiz"
-        subtitle="Application Mobile"
+        subtitle={t("common:mobile-application")}
         logo="/logo/countries-quiz.svg"
       />
       <About />
       <Technologies />
       <Screenshots
+        title={t("common:images")}
         size={35}
         values={[
           "/img/countries-quiz/home.png",
@@ -27,6 +34,15 @@ export default function CountriesQuiz(): JSX.Element {
     </Container>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<ServerSideUAProps> = async (
+  context: GetServerSidePropsContext
+) => ({
+  props: {
+    ...(await serverSideUA(context)),
+    ...(await serverSideTranslations(context.locale!, ["common", "countries-quiz"])),
+  },
+});
 
 const Container = styled.div`
   display: flex;
