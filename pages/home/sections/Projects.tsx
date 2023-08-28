@@ -6,17 +6,19 @@ import HeaderWithTitle from "../../../components/card/Header";
 import Thumbnail from "../../../components/thumbnail/Thumbnail";
 import Card from "../../../components/card/Card";
 import { Theme } from "../../_app";
+import { useTranslation } from "react-i18next";
 
 export default function Projects(): JSX.Element {
   const { resolution } = useContext<Theme>(ThemeContext);
+  const { t } = useTranslation();
 
   const router = useRouter();
 
   return (
     <Section>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Mes créations" center />}
-        renderFooter={() => <FooterInformation>D'autres projets à venir...</FooterInformation>}
+        renderHeader={() => <HeaderWithTitle title={t("home:projects.title")} center />}
+        renderFooter={() => <FooterInformation>{t("home:projects.label")}</FooterInformation>}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

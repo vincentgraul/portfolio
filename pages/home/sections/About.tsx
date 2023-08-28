@@ -6,10 +6,12 @@ import Card from "../../../components/card/Card";
 import { Theme } from "../../_app";
 import { useModalStore } from "../../../store/modal";
 import ContactModal from "../../../components/modal/ContactModal";
+import { useTranslation, Trans } from "next-i18next";
 
 export default function About(): JSX.Element {
   const { resolution } = useContext<Theme>(ThemeContext);
   const { showModal } = useModalStore();
+  const { t } = useTranslation();
 
   return (
     <Section animation>
@@ -18,20 +20,13 @@ export default function About(): JSX.Element {
         $radius={resolution.isLaptopOrUpper ? true : undefined}
       >
         <Text>
-          Bonjour, je suis Vincent Graul. <br /> <br />
-          Je suis passionné par le développement web et d’applications mobiles. J’aime me lancer des
-          défis, me remettre en question et concrétiser les projets dans lesquels je m’investis,
-          qu’ils soient personnels ou professionnels. <br />
-          Dans ma vie de développeur j’accorde une place importante à la veille, aux bonnes
-          pratiques ainsi qu’aux tests logiciels. <br />
-          <br />
-          Pour finir, j’aime échanger sur ma passion et mon expérience que ce soit entre collègues,
-          avec des personnes novices, ou autres…
+          <Trans i18nKey="home:about.text" />
         </Text>
 
         <ButtonContainer>
-          <CVButton onClick={() => window.open("/cv.pdf", "_blank")}>Voir mon CV</CVButton>
-          <ContactButton onClick={() => showModal(ContactModal)}>Me contacter</ContactButton>
+          <ContactButton onClick={() => showModal(ContactModal)}>
+            {t("home:about.button")}
+          </ContactButton>
         </ButtonContainer>
       </Card>
     </Section>
@@ -67,8 +62,7 @@ const ButtonContainer = styled.div`
     }
 `}
 `;
-
-const ButtonStyles = css`
+const ContactButton = styled(Button)`
   ${({ theme }) => `
     font-size: 1.5vw;
 
@@ -80,13 +74,4 @@ const ButtonStyles = css`
     }
   }
 `}
-`;
-
-const CVButton = styled(Button)`
-  ${ButtonStyles}
-`;
-
-const ContactButton = styled(Button)`
-  ${ButtonStyles}
-  margin-left: 3vw;
 `;

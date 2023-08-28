@@ -8,20 +8,22 @@ import Tag from "../../../components/tag/Tag";
 import Row from "../../../components/tag/Row";
 import Label from "../../../components/tag/Label";
 import List from "../../../components/tag/List";
+import { useTranslation } from "react-i18next";
 
 export default function Skills(): JSX.Element {
   const { resolution } = useContext<Theme>(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Mes compétences" center />}
+        renderHeader={() => <HeaderWithTitle title={t("home:skills.title")} center />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
-            <Label>Langages</Label>
+            <Label>{t("common:language")}</Label>
             <List>
               <Tag>TypeScript</Tag>
               <Tag>JavaScript</Tag>
@@ -32,11 +34,7 @@ export default function Skills(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>
-              Technologies
-              {resolution?.isTabletOrLower ? " " : <br />}
-              front-end
-            </Label>
+            <Label>{t("common:front-end")}</Label>
             <List>
               <Tag>React</Tag>
               <Tag>Redux</Tag>
@@ -47,11 +45,7 @@ export default function Skills(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>
-              Technologies
-              {resolution?.isTabletOrLower ? " " : <br />}
-              back-end
-            </Label>
+            <Label>{t("common:back-end")}</Label>
             <List>
               <Tag>Node</Tag>
               <Tag>Nest</Tag>
@@ -60,11 +54,7 @@ export default function Skills(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>
-              Technologies
-              {resolution?.isTabletOrLower ? " " : <br />}
-              mobiles
-            </Label>
+            <Label>{t("common:mobile")}</Label>
             <List>
               <Tag>React Native</Tag>
               <Tag>Expo</Tag>
@@ -72,11 +62,7 @@ export default function Skills(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>
-              Technologies
-              {resolution?.isTabletOrLower ? " " : <br />}
-              de test
-            </Label>
+            <Label>{t("common:test")}</Label>
             <List>
               <Tag>Jest</Tag>
               <Tag>Testing Library</Tag>
