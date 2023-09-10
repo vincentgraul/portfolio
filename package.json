@@ -20,6 +20,7 @@
     "@types/ua-parser-js": "^0.7.36",
     "@vincentgraul/react-components": "^1.0.8",
     "@vincentgraul/types": "^1.0.0",
+    "@vincentgraul/utils": "^1.0.0",
     "axios": "^1.4.0",
     "framer-motion": "^10.13.0",
     "i18next": "^23.4.1",

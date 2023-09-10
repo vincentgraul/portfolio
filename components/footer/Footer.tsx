@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BubbleLink from "../bubble-link/BubbleLink";
 import { useModalStore } from "../../store/modal";
 import ContactModal from "../modal/ContactModal";
+import CountrySelector from "@vincentgraul/react-components/country-selector";
 
 export default function Footer(): JSX.Element {
   const { showModal } = useModalStore();
@@ -13,28 +14,32 @@ export default function Footer(): JSX.Element {
 
   return (
     <Container>
-      <Linkedin
-        name="linkedin"
-        href="http://www.linkedin.com/in/vincentgraul"
-        target="_blank"
-        src="/logo/social/linkedin.svg"
-      />
+      <SocialContainer>
+        <Linkedin
+          name="linkedin"
+          href="http://www.linkedin.com/in/vincentgraul"
+          target="_blank"
+          src="/logo/social/linkedin.svg"
+        />
 
-      <Github
-        name="github"
-        href="https://github.com/vincentgraul"
-        target="_blank"
-        src="/logo/social/github.svg"
-      />
+        <Github
+          name="github"
+          href="https://github.com/vincentgraul"
+          target="_blank"
+          src="/logo/social/github.svg"
+        />
 
-      <Mail href={void 0} name="mail" src="/logo/social/mail.svg" onClick={displayEmailModal} />
+        <Mail href={void 0} name="mail" src="/logo/social/mail.svg" onClick={displayEmailModal} />
 
-      <Medium
-        name="medium"
-        href="https://medium.com/@vincentgraul"
-        target="_blank"
-        src="/logo/social/medium.svg"
-      />
+        <Medium
+          name="medium"
+          href="https://medium.com/@vincentgraul"
+          target="_blank"
+          src="/logo/social/medium.svg"
+        />
+      </SocialContainer>
+
+      <LanguageSelector languages={["fr", "gb"]} />
     </Container>
   );
 }
@@ -43,11 +48,11 @@ const Container = styled.div`
   ${({ theme }) => `
 display: flex;
 align-items: center;
-justify-content: center;
 background-color: ${theme.colors.primary};
 min-height: 20vh;
 border-top: 0.2vw dashed ${theme.colors.dark.secondary};
 border-width: 0.3vw;
+padding: 2vw 0;
 
 @media ${theme.breakpoints.tabletOrLower} {
   min-height: 20vw;
@@ -63,6 +68,16 @@ border-width: 0.3vw;
   }
 }
 `}
+`;
+
+const SocialContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: auto;
+`;
+
+const LanguageSelector = styled(CountrySelector)`
+  margin-right: 3vw;
 `;
 
 const Linkedin = styled(BubbleLink)`
