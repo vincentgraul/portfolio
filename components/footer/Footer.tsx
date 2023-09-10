@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import BubbleLink from "../bubble-link/BubbleLink";
 import { useModalStore } from "../../store/modal";
 import ContactModal from "../modal/ContactModal";
@@ -7,6 +7,7 @@ import CountrySelector from "@vincentgraul/react-components/country-selector";
 
 export default function Footer(): JSX.Element {
   const { showModal } = useModalStore();
+  const { resolution } = useContext(ThemeContext);
 
   const displayEmailModal = () => {
     showModal(ContactModal);
@@ -39,7 +40,10 @@ export default function Footer(): JSX.Element {
         />
       </SocialContainer>
 
-      <LanguageSelector languages={["fr", "gb"]} />
+      <LanguageSelector
+        languages={["fr", "gb"]}
+        flagWidth={resolution.isTabletOrLower ? "7vw" : "3vw"}
+      />
     </Container>
   );
 }
@@ -55,10 +59,11 @@ border-width: 0.3vw;
 padding: 2vw 0;
 
 @media ${theme.breakpoints.tabletOrLower} {
+  flex-direction: column;
   min-height: 20vw;
+  padding: 5vw 0;
 
   @media ${theme.breakpoints.portrait} {
-    justify-content: space-evenly;
     min-height: 20vh;
     border-width: 0.8vw;
   }
@@ -71,13 +76,27 @@ padding: 2vw 0;
 `;
 
 const SocialContainer = styled.div`
+  ${({ theme }) => `
   display: flex;
   align-items: center;
   margin: auto;
+
+  @media ${theme.breakpoints.tabletOrLower} {
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 5vw;
+  }
+`}
 `;
 
 const LanguageSelector = styled(CountrySelector)`
+  ${({ theme }) => `
   margin-right: 3vw;
+
+  @media ${theme.breakpoints.tabletOrLower} {
+    margin-top: 10vw;
+  }
+`}
 `;
 
 const Linkedin = styled(BubbleLink)`
