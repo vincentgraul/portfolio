@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import BubbleLink from "../bubble-link/BubbleLink";
 import { useModalStore } from "../../store/modal";
 import ContactModal from "../modal/ContactModal";
@@ -7,7 +7,7 @@ import CountrySelector from "@vincentgraul/react-components/country-selector";
 
 export default function Footer(): JSX.Element {
   const { showModal } = useModalStore();
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
 
   const displayEmailModal = () => {
     showModal(ContactModal);

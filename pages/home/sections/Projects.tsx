@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import { useRouter } from "next/router";
 import Section from "../../../components/section/Section";
 import HeaderWithTitle from "../../../components/card/Header";
 import Thumbnail from "../../../components/thumbnail/Thumbnail";
 import Card from "../../../components/card/Card";
-import { Theme } from "../../_app";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 export default function Projects(): JSX.Element {
-  const { resolution } = useContext<Theme>(ThemeContext);
+  const { resolution } = useTheme();
   const { t } = useTranslation();
 
   const router = useRouter();
@@ -17,7 +16,7 @@ export default function Projects(): JSX.Element {
   return (
     <Section>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("home:projects.title")} center />}
+        renderHeader={() => <HeaderWithTitle title={t("home:projects.title")} />}
         renderFooter={() => <FooterInformation>{t("home:projects.label")}</FooterInformation>}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}

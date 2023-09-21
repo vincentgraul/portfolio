@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import Section from "../../../components/section/Section";
 import HeaderWithTitle from "../../../components/card/Header";
 import Card from "../../../components/card/Card";
@@ -9,12 +9,12 @@ import List from "../../../components/tag/List";
 import Tag from "../../../components/tag/Tag";
 
 export default function Technologies(): JSX.Element {
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Technologies utilisées" center />}
+        renderHeader={() => <HeaderWithTitle title="Technologies utilisées" />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

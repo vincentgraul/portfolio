@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext, css } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import Section from "../../../components/section/Section";
 import Button from "../../../components/button/Button";
 import Card from "../../../components/card/Card";
-import { Theme } from "../../_app";
 import { useModalStore } from "../../../store/modal";
 import ContactModal from "../../../components/modal/ContactModal";
 import { useTranslation, Trans } from "next-i18next";
 
 export default function About(): JSX.Element {
-  const { resolution } = useContext<Theme>(ThemeContext);
+  const { resolution } = useTheme();
   const { showModal } = useModalStore();
   const { t } = useTranslation();
 

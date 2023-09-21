@@ -1,13 +1,12 @@
-import React, { Fragment, useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React, { Fragment } from "react";
+import styled, { useTheme } from "styled-components";
 import Link from "next/link";
 import Card from "../../../components/card/Card";
 import Section from "../../../components/section/Section";
-import { Theme } from "../../_app";
-import { Trans } from "react-i18next";
+import { Trans } from "next-i18next";
 
 export default function About(): JSX.Element {
-  const { resolution } = useContext<Theme>(ThemeContext);
+  const { resolution } = useTheme();
 
   return (
     <Section animation>
@@ -15,10 +14,8 @@ export default function About(): JSX.Element {
         <Fragment>
           <Text>
             <Trans i18nKey="countries-quiz:about.text" />
-            <Link href="/mooncello">
-              <MooncelloLink>Mooncello</MooncelloLink>
-            </Link>
-            , un Headless CMS que j'ai réalisé.
+            <MooncelloLink href="/mooncello"> Mooncello</MooncelloLink>, un Headless CMS que j'ai
+            réalisé.
           </Text>
         </Fragment>
       </Card>
@@ -40,7 +37,7 @@ const Text = styled.p`
   }`}
 `;
 
-const MooncelloLink = styled.a`
+const MooncelloLink = styled(Link)`
   ${({ theme }) => `
   color: ${theme.colors.dark.primary};
   font-weight: bold;

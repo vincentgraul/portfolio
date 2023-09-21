@@ -1,4 +1,5 @@
-import styled, { css, ThemeContext } from "styled-components";
+import React, { useRef, useState } from "react";
+import styled, { useTheme, css } from "styled-components";
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +9,6 @@ import colors from "../../styles/colors";
 import { useModalStore } from "../../store/modal";
 import InformationModal from "./InformationModal";
 import ErrorField from "../error-field/ErrorField";
-import { useContext, useRef, useState } from "react";
 import { useLoaderStore } from "../../store/loader";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -21,7 +21,7 @@ type Inputs = {
 export default function ContactModal() {
   const { showModal, hideModal } = useModalStore();
   const { showLoader, hideLoader } = useLoaderStore();
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isCaptchaEmpty, setCaptchaEmpty] = useState<boolean>(false);
 
@@ -217,11 +217,11 @@ const FieldStyles = css<{ hasError: boolean }>`
 `}
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ hasError: boolean }>`
   ${FieldStyles}
 `;
 
-const TextArea = styled.textarea`
+const TextArea = styled.textarea<{ hasError: boolean }>`
   ${FieldStyles}
   resize: none;
 `;

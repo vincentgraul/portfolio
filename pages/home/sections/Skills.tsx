@@ -1,23 +1,22 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import Section from "../../../components/section/Section";
 import HeaderWithTitle from "../../../components/card/Header";
 import Card from "../../../components/card/Card";
-import { Theme } from "../../_app";
 import Tag from "../../../components/tag/Tag";
 import Row from "../../../components/tag/Row";
 import Label from "../../../components/tag/Label";
 import List from "../../../components/tag/List";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 export default function Skills(): JSX.Element {
-  const { resolution } = useContext<Theme>(ThemeContext);
+  const { resolution } = useTheme();
   const { t } = useTranslation();
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("home:skills.title")} center />}
+        renderHeader={() => <HeaderWithTitle title={t("home:skills.title")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

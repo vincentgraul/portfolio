@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { Trans } from "next-i18next";
 
 export default function Header(): JSX.Element {
-  const { resolution } = useContext(ThemeContext);
-  const { t } = useTranslation();
+  const { resolution } = useTheme();
 
   return (
     <Container>
       <Title>
-        Vincent Graul <br /> {t("home:header.title")} <br />{" "}
+        <Trans i18nKey="home:header.title" />
         <TextBackground
           animate={{
             x: resolution.isLaptopOrUpper ? "30vw" : "50vw",

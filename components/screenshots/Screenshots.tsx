@@ -1,6 +1,6 @@
-import React, { useContext, useRef } from "react";
+import React, { useRef } from "react";
 import Slider, { Settings } from "react-slick";
-import styled, { ThemeContext } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { motion } from "framer-motion";
 import useScrollTo from "@vincentgraul/react-components/scroll-to";
 import Section, { Props as SectionProps } from "../../components/section/Section";
@@ -15,7 +15,7 @@ interface Props extends SectionProps {
 
 export default function Screenshots(props: Props): JSX.Element {
   const { title, values, size, animation } = props;
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
   const slider = useRef<Slider>(null);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,7 +35,7 @@ export default function Screenshots(props: Props): JSX.Element {
   return (
     <Section animation={animation}>
       <Card
-        renderHeader={() => <HeaderWithTitle title={title} center />}
+        renderHeader={() => <HeaderWithTitle title={title} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

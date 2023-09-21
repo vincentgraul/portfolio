@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import Section from "../../../components/section/Section";
 import HeaderWithTitle from "../../../components/card/Header";
 import Card from "../../../components/card/Card";
@@ -7,16 +7,16 @@ import Row from "../../../components/tag/Row";
 import Label from "../../../components/tag/Label";
 import Tag from "../../../components/tag/Tag";
 import List from "../../../components/tag/List";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 export default function Technologies(): JSX.Element {
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
   const { t } = useTranslation();
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("mooncello:technologies.title")} center />}
+        renderHeader={() => <HeaderWithTitle title={t("mooncello:technologies.title")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

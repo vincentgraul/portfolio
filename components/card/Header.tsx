@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 interface Props {
   title: string;
-  center?: boolean;
   className?: string;
 }
 
@@ -17,10 +16,10 @@ export default function HeaderWithTitle(props: Props): JSX.Element {
   );
 }
 
-const Header = styled.div<{ center?: boolean }>`
-  ${({ theme, center }) => `
+const Header = styled.div`
+  ${({ theme }) => `
 display: flex;
-align-self: ${center ? "center" : "initial"};
+align-self: center;
 margin-bottom: 8vw;
 
 @media ${theme.breakpoints.tabletOrLower} {

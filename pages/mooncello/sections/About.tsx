@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import Reac from "react";
+import styled, { useTheme } from "styled-components";
 import Card from "../../../components/card/Card";
 import Section from "../../../components/section/Section";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation, Trans } from "next-i18next";
 
 export default function About(): JSX.Element {
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
   const { t } = useTranslation();
 
   return (

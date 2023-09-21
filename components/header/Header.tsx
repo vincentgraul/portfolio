@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import React from "react";
+import styled, { useTheme } from "styled-components";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
@@ -11,7 +11,7 @@ interface Props {
 
 export default function Header(props: Props): JSX.Element {
   const { title, subtitle, logo } = props;
-  const { resolution } = useContext(ThemeContext);
+  const { resolution } = useTheme();
   const router = useRouter();
 
   return (
