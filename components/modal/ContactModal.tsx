@@ -107,7 +107,7 @@ export default function ContactModal() {
             id="name"
             type="text"
             {...register("name")}
-            hasError={errors.hasOwnProperty("name")}
+            $hasError={errors.hasOwnProperty("name")}
           ></Input>
           {errors.name?.message && <Error text={errors.name.message} />}
         </Label>
@@ -118,7 +118,7 @@ export default function ContactModal() {
             id="email"
             type="email"
             {...register("email")}
-            hasError={errors.hasOwnProperty("email")}
+            $hasError={errors.hasOwnProperty("email")}
           ></Input>
           {errors.email?.message && <Error text={errors.email.message} />}
         </Label>
@@ -129,7 +129,7 @@ export default function ContactModal() {
             id="text"
             rows={resolution.isTablet ? 8 : 5}
             {...register("text")}
-            hasError={errors.hasOwnProperty("text")}
+            $hasError={errors.hasOwnProperty("text")}
           ></TextArea>
           {errors.text?.message && <Error text={errors.text.message} />}
         </Label>
@@ -195,15 +195,15 @@ const Label = styled.label`
 `}
 `;
 
-const FieldStyles = css<{ hasError: boolean }>`
-  ${({ theme, hasError }) => `
+const FieldStyles = css<{ $hasError: boolean }>`
+  ${({ theme, $hasError }) => `
   margin-top: 1vw;
   border-radius: 0.3vw;
   border: 0.15vw solid;
-  border-color: ${hasError ? colors.error : colors.dark.secondary};
+  border-color: ${$hasError ? colors.error : colors.dark.secondary};
 
   &:focus {
-    outline-color: ${hasError ? colors.error : colors.dark.primary};
+    outline-color: ${$hasError ? colors.error : colors.dark.primary};
   }
 
   @media ${theme.breakpoints.tabletOrLower} {
@@ -217,11 +217,11 @@ const FieldStyles = css<{ hasError: boolean }>`
 `}
 `;
 
-const Input = styled.input<{ hasError: boolean }>`
+const Input = styled.input<{ $hasError: boolean }>`
   ${FieldStyles}
 `;
 
-const TextArea = styled.textarea<{ hasError: boolean }>`
+const TextArea = styled.textarea<{ $hasError: boolean }>`
   ${FieldStyles}
   resize: none;
 `;
