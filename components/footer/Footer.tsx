@@ -4,13 +4,25 @@ import BubbleLink from "../bubble-link/BubbleLink";
 import { useModalStore } from "../../store/modal";
 import ContactModal from "../modal/ContactModal";
 import CountrySelector from "@vincentgraul/react-components/country-selector";
+import { useRouter } from "next/router";
 
 export default function Footer(): JSX.Element {
   const { showModal } = useModalStore();
   const { resolution } = useTheme();
+  const router = useRouter();
 
   const displayEmailModal = () => {
     showModal(ContactModal);
+  };
+
+  const handleChangeLanguage = (country: string) => {
+    let language: string = country;
+
+    if (country === "gb") {
+      language = "en";
+    }
+
+    router.push(router.route, router.route, { locale: language });
   };
 
   return (
@@ -43,6 +55,7 @@ export default function Footer(): JSX.Element {
       <LanguageSelector
         languages={["fr", "gb"]}
         flagWidth={resolution.isTabletOrLower ? "7vw" : "3vw"}
+        onChange={(option) => handleChangeLanguage(option.value)}
       />
     </Container>
   );
