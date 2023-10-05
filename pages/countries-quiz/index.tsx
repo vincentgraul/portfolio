@@ -10,19 +10,19 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function CountriesQuiz(): JSX.Element {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   return (
     <Container>
       <Header
         title="Countries Quiz"
-        subtitle={t("common:mobile-application")}
+        subtitle={t("mobile-application")}
         logo="/logo/countries-quiz.svg"
       />
       <About />
       <Technologies />
       <Screenshots
-        title={t("common:images")}
+        title={t("images")}
         size={35}
         values={[
           "/img/countries-quiz/home.png",

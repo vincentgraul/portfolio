@@ -11,18 +11,18 @@ import { useTranslation } from "next-i18next";
 
 export default function Technologies(): JSX.Element {
   const { resolution } = useTheme();
-  const { t } = useTranslation();
+  const { t } = useTranslation("mooncello");
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("mooncello:technologies.title")} />}
+        renderHeader={() => <HeaderWithTitle title={t("technologies.title")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
-            <Label>{t("common:language")}</Label>
+            <Label>{t("common:languages")}</Label>
             <List flex={6}>
               <Tag>TypeScript</Tag>
               <Tag>HTML</Tag>

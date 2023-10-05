@@ -11,18 +11,18 @@ import { useTranslation } from "next-i18next";
 
 export default function Skills(): JSX.Element {
   const { resolution } = useTheme();
-  const { t } = useTranslation();
+  const { t } = useTranslation("home");
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("home:skills.title")} />}
+        renderHeader={() => <HeaderWithTitle title={t("skills.title")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
-            <Label>{t("common:language")}</Label>
+            <Label>{t("common:languages")}</Label>
             <List>
               <Tag>TypeScript</Tag>
               <Tag>JavaScript</Tag>

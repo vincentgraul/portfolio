@@ -10,7 +10,7 @@ import { useTranslation, Trans } from "next-i18next";
 export default function About(): JSX.Element {
   const { resolution } = useTheme();
   const { showModal } = useModalStore();
-  const { t } = useTranslation();
+  const { t } = useTranslation("home");
 
   return (
     <Section animation>
@@ -23,9 +23,7 @@ export default function About(): JSX.Element {
         </Text>
 
         <ButtonContainer>
-          <ContactButton onClick={() => showModal(ContactModal)}>
-            {t("home:about.button")}
-          </ContactButton>
+          <ContactButton onClick={() => showModal(ContactModal)}>{t("about.button")}</ContactButton>
         </ButtonContainer>
       </Card>
     </Section>

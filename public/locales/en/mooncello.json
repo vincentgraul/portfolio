@@ -6,5 +6,5 @@
   "about.fourth-bullet": "Le développement du back-end avec Nest et l'écriture de tests unitaires et d'intégration avec Jest",
   "about.fifth-bullet": "Le développement du CLI pour simplifier la gestion du projet",
   "about.sixth-bullet": "Le développement du panel d'administration et de composants graphiques avec React et l'écriture de tests avec React Testing Library",
-  "technologies.title": "Technologies utilisées"
+  "technologies.title": "Technologies used"
 }

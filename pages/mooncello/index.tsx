@@ -11,7 +11,7 @@ import Technologies from "./sections/Technologies";
 import Video from "./sections/Video";
 
 export default function Mooncello(): JSX.Element {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   return (
     <Container>
@@ -19,7 +19,7 @@ export default function Mooncello(): JSX.Element {
       <About />
       <Technologies />
       <Screenshots
-        title={t("common:images")}
+        title={t("images")}
         animation
         values={[
           "/img/mooncello/setup_welcome.png",

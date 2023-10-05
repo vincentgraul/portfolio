@@ -9,15 +9,14 @@ import { useTranslation } from "next-i18next";
 
 export default function Projects(): JSX.Element {
   const { resolution } = useTheme();
-  const { t } = useTranslation();
-
+  const { t } = useTranslation("home");
   const router = useRouter();
 
   return (
     <Section>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("home:projects.title")} />}
-        renderFooter={() => <FooterInformation>{t("home:projects.label")}</FooterInformation>}
+        renderHeader={() => <HeaderWithTitle title={t("projects.title")} />}
+        renderFooter={() => <FooterInformation>{t("projects.label")}</FooterInformation>}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

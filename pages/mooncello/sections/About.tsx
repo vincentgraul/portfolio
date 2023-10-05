@@ -1,4 +1,4 @@
-import Reac from "react";
+import React from "react";
 import styled, { useTheme } from "styled-components";
 import Card from "../../../components/card/Card";
 import Section from "../../../components/section/Section";
@@ -6,7 +6,7 @@ import { useTranslation, Trans } from "next-i18next";
 
 export default function About(): JSX.Element {
   const { resolution } = useTheme();
-  const { t } = useTranslation();
+  const { t } = useTranslation("mooncello");
 
   return (
     <Section animation>
@@ -17,12 +17,12 @@ export default function About(): JSX.Element {
           </p>
 
           <ul>
-            <Bullet>{t("mooncello:about.first-bullet")}</Bullet>
-            <Bullet>{t("mooncello:about.second-bullet")}</Bullet>
-            <Bullet>{t("mooncello:about.third-bullet")}</Bullet>
-            <Bullet>{t("mooncello:about.fourth-bullet")}</Bullet>
-            <Bullet> {t("mooncello:about.fifth-bullet")}</Bullet>
-            <Bullet>{t("mooncello:about.sixth-bullet")}</Bullet>
+            <Bullet>{t("about.first-bullet")}</Bullet>
+            <Bullet>{t("about.second-bullet")}</Bullet>
+            <Bullet>{t("about.third-bullet")}</Bullet>
+            <Bullet>{t("about.fourth-bullet")}</Bullet>
+            <Bullet> {t("about.fifth-bullet")}</Bullet>
+            <Bullet>{t("about.sixth-bullet")}</Bullet>
           </ul>
         </Container>
       </Card>

@@ -7,12 +7,12 @@ import { useTranslation } from "next-i18next";
 
 export default function Video(): JSX.Element {
   const { resolution } = useTheme();
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   return (
     <Section>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("common:video")} />}
+        renderHeader={() => <HeaderWithTitle title={t("video")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >

@@ -23,7 +23,7 @@ export interface Theme {
 }
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
   const ref = useRef<HTMLDivElement>(null);
   useScrollTo(ref);
 
@@ -33,8 +33,8 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>{t("common:title")}</title>
-        <meta name="description" content={t("common:meta-content")} />
+        <title>{t("title")}</title>
+        <meta name="description" content={t("meta-content")} />
       </Head>
 
       <ThemeProvider theme={theme}>
