@@ -11,18 +11,18 @@ import { useTranslation } from "next-i18next";
 
 export default function Technologies(): JSX.Element {
   const { resolution } = useTheme();
-  const { t } = useTranslation("mooncello");
+  const { t } = useTranslation("common");
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title={t("technologies.title")} />}
+        renderHeader={() => <HeaderWithTitle title={t("technologies")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
-            <Label>{t("common:languages")}</Label>
+            <Label>{t("languages")}</Label>
             <List flex={6}>
               <Tag>TypeScript</Tag>
               <Tag>HTML</Tag>
@@ -32,7 +32,7 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>{t("common:front-end")}</Label>
+            <Label>{t("front-end")}</Label>
             <List flex={6}>
               <Tag>React</Tag>
               <Tag>Redux</Tag>
@@ -43,7 +43,7 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>{t("common:back-end")}</Label>
+            <Label>{t("back-end")}</Label>
             <List flex={6}>
               <Tag>Node</Tag>
               <Tag>Nest</Tag>
@@ -52,7 +52,7 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>{t("common:test")}</Label>
+            <Label>{t("test")}</Label>
             <List flex={6}>
               <Tag>Jest</Tag>
               <Tag>Testing Library</Tag>

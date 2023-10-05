@@ -7,20 +7,22 @@ import Row from "../../../components/tag/Row";
 import Label from "../../../components/tag/Label";
 import List from "../../../components/tag/List";
 import Tag from "../../../components/tag/Tag";
+import { useTranslation } from "next-i18next";
 
 export default function Technologies(): JSX.Element {
   const { resolution } = useTheme();
+  const { t } = useTranslation("common");
 
   return (
     <Section animation>
       <Card
-        renderHeader={() => <HeaderWithTitle title="Technologies utilisées" />}
+        renderHeader={() => <HeaderWithTitle title={t("technologies")} />}
         $full={resolution.isTabletOrLower}
         $radius={resolution.isLaptopOrUpper}
       >
         <Container>
           <Row>
-            <Label>Mobile</Label>
+            <Label>{t("mobile")}</Label>
             <List flex={6}>
               <Tag>React Native</Tag>
               <Tag>Expo</Tag>
@@ -31,14 +33,14 @@ export default function Technologies(): JSX.Element {
           </Row>
 
           <Row>
-            <Label>Back-end</Label>
+            <Label>{t("back-end")}</Label>
             <List flex={6}>
               <Tag>Mooncello</Tag>
             </List>
           </Row>
 
           <Row>
-            <Label>Testing</Label>
+            <Label>{t("test")}</Label>
             <List flex={6}>
               <Tag>Jest</Tag>
               <Tag>Testing Library</Tag>
@@ -63,50 +65,3 @@ const Container = styled.div`
   }
 `}
 `;
-
-/*
-
-          <Column>
-            <Title>Mobile</Title>
-            <List>
-              <li>React Native</li>
-              <li>Expo</li>
-              <li>TypeScript </li>
-              <li>Styled-Components</li>
-              <li>SQLite</li>
-            </List>
-          </Column>
-
-          <BlocksLine
-            src={
-              resolution.isTabletOrLower
-                ? "/shapes/blocks-line.svg"
-                : "/shapes/vertical-blocks-line.svg"
-            }
-          />
-
-          <Column>
-            <Title>Back-end</Title>
-            <List>
-              <li>Mooncello</li>
-            </List>
-          </Column>
-
-          <BlocksLine
-            src={
-              resolution.isTabletOrLower
-                ? "/shapes/blocks-line.svg"
-                : "/shapes/vertical-blocks-line.svg"
-            }
-          />
-
-          <Column>
-            <Title>Testing</Title>
-            <List>
-              <li>Jest</li>
-              <li>Testing Library</li>
-            </List>
-          </Column>
-
-
-*/
