@@ -8,7 +8,7 @@ export const getServerSideProps: GetServerSideProps<ServerSideUAProps> = async (
 ) => ({
   props: {
     ...(await serverSideUA(context)),
-    ...(await serverSideTranslations(context.locale!, ["common", "home"])),
+    ...(await serverSideTranslations(context.locale!, ["common", "home", "contact"])),
   },
 });
 

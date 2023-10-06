@@ -11,6 +11,7 @@ import InformationModal from "./InformationModal";
 import ErrorField from "../error-field/ErrorField";
 import { useLoaderStore } from "../../store/loader";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useTranslation } from "next-i18next";
 
 type Inputs = {
   name: string;
@@ -24,11 +25,15 @@ export default function ContactModal() {
   const { resolution } = useTheme();
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isCaptchaEmpty, setCaptchaEmpty] = useState<boolean>(false);
+  const { t } = useTranslation("contact");
 
   const schema = z.object({
-    name: z.string().min(1, { message: "Ce champ est requis" }),
-    email: z.string().min(1, { message: "Ce champ est requis" }).email("Email invalide"),
-    text: z.string().min(1, { message: "Ce champ est requis" }),
+    name: z.string().min(1, { message: t("required") }),
+    email: z
+      .string()
+      .min(1, { message: t("required") })
+      .email(t("invalid-email")),
+    text: z.string().min(1, { message: t("required") }),
   });
 
   const {
@@ -66,7 +71,7 @@ export default function ContactModal() {
 
     if (isCaptchaValid) {
       try {
-        showLoader("Envoie du message...");
+        showLoader(t("loader-send-message"));
         await axios.post("/api/email", { name, email, text, captchaToken });
       } catch (e) {
         console.error(e);
@@ -83,12 +88,11 @@ export default function ContactModal() {
 
   const showInformation = (hasError: boolean) => {
     let icon = "/icons/success.svg";
-    let text = "Votre message a bien été envoyé !";
+    let text = t("success");
 
     if (hasError) {
       icon = "/icons/error.svg";
-      text = `Malheureusement votre message n'a pas pu être envoyé.
-      Veuillez réessayer ultérieurement.`;
+      text = t("error");
     }
 
     showModal(InformationModal, { icon, text });
@@ -97,12 +101,12 @@ export default function ContactModal() {
   return (
     <div>
       <Header>
-        <Title>Envoyer un message</Title>
+        <Title>{t("title")}</Title>
       </Header>
 
       <Form onSubmit={handleSubmit(handleOnSubmit)}>
         <Label htmlFor="name">
-          Nom
+          {t("name")}
           <Input
             id="name"
             type="text"
@@ -113,7 +117,7 @@ export default function ContactModal() {
         </Label>
 
         <Label htmlFor="email">
-          Email
+          {t("email")}
           <Input
             id="email"
             type="email"
@@ -124,7 +128,7 @@ export default function ContactModal() {
         </Label>
 
         <Label htmlFor="text">
-          Message
+          {t("message")}
           <TextArea
             id="text"
             rows={resolution.isTablet ? 8 : 5}
@@ -141,11 +145,11 @@ export default function ContactModal() {
               sitekey={process.env.NEXT_PUBLIC_CAPTCHA_KEY}
               onChange={handleOnChangeCaptcha}
             />
-            {isCaptchaEmpty && <Error text="Ce champ est requis" />}
+            {isCaptchaEmpty && <Error text={t("required")} />}
           </>
         )}
 
-        <Submit type="submit">Envoyer</Submit>
+        <Submit type="submit">{t("send")}</Submit>
       </Form>
     </div>
   );

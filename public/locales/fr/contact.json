@@ -1,0 +1,12 @@
+{
+  "title": "Envoyer un message",
+  "name": "Nom",
+  "email": "Email",
+  "message": "Message",
+  "send": "Envoyer",
+  "required": "Ce champ est requis",
+  "success": "Votre message a bien été envoyé !",
+  "error": "Malheureusement votre message n'a pas pu être envoyé. Veuillez réessayer ultérieurement.",
+  "invalid-email": "Email invalide",
+  "loader-send-message": "Envoie du message..."
+}
