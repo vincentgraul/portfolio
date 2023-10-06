@@ -13,9 +13,10 @@ export default function About(): JSX.Element {
       <Card $full={resolution.isTabletOrLower} $radius={resolution.isLaptopOrUpper}>
         <Fragment>
           <Text>
-            <Trans i18nKey="countries-quiz:about.text" />
-            <MooncelloLink href="/mooncello"> Mooncello</MooncelloLink>, un Headless CMS que j'ai
-            réalisé.
+            <Trans
+              i18nKey="countries-quiz:about.text"
+              components={[<MooncelloLink href="/mooncello" />]}
+            />
           </Text>
         </Fragment>
       </Card>
