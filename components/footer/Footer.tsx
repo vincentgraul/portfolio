@@ -5,11 +5,13 @@ import { useModalStore } from "../../store/modal";
 import ContactModal from "../modal/ContactModal";
 import CountrySelector from "@vincentgraul/react-components/country-selector";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export default function Footer(): JSX.Element {
   const { showModal } = useModalStore();
   const { resolution } = useTheme();
   const router = useRouter();
+  const { i18n } = useTranslation();
 
   const displayEmailModal = () => {
     showModal(ContactModal);
@@ -53,6 +55,7 @@ export default function Footer(): JSX.Element {
       </SocialContainer>
 
       <LanguageSelector
+        value={i18n.language === "en" ? "gb" : i18n.language}
         languages={["fr", "gb"]}
         flagWidth={resolution.isTabletOrLower ? "7vw" : "3vw"}
         onChange={(option) => handleChangeLanguage(option.value)}
