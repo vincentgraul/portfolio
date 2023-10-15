@@ -15,7 +15,7 @@ export default function About(): JSX.Element {
           <Text>
             <Trans
               i18nKey="countries-quiz:about.text"
-              components={[<MooncelloLink href="/mooncello" />]}
+              components={[<MooncelloLink key="countries-quiz-text" href="/mooncello" />]}
             />
           </Text>
         </Fragment>
