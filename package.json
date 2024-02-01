@@ -21,7 +21,7 @@
     "@vincentgraul/react-components": "^1.0.38",
     "@vincentgraul/types": "^1.0.3",
     "axios": "^1.6.7",
-    "framer-motion": "^10.18.0",
+    "framer-motion": "^11.0.3",
     "i18next": "^23.8.2",
     "next": "^14.1.0",
     "next-i18next": "^15.2.0",
